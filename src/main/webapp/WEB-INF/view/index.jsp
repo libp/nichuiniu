@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="all">
-	你吹牛
+	你吹牛......
 	</div>	
 </body>
 
