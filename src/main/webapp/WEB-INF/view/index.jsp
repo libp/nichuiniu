@@ -9,13 +9,28 @@
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
-<title>你吹牛</title>
+<link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${basePath }css/index.css" />
+<script src="${basePath }js/index.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 
+<title>你吹牛</title>
 </head>
 <body>
-	<div class="all">
-	你吹牛......
-	</div>	
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-6 column">
+		LOGO
+		</div>
+		<div class="col-md-6 column">
+		LOGIN
+		</div>
+	</div>
+	<form>
+		<input></input>
+	</form>
+</div>
+
 </body>
 
 </html>
