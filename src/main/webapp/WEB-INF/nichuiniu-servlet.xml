@@ -34,7 +34,8 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
+	
+	<!-- 解析@ResponseBody -->
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
 		p:order="1" p:favorParameter="false" p:ignoreAcceptHeader="true">
