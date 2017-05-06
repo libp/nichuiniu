@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
-<meta name="description" content="overview &amp; stats" />
+<meta name="description" content="你吹牛、吹牛，你吹过的牛皮" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <%
-String path = request.getContextPath();
-String dd = "dd";
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
 <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${basePath }css/index.css" />
@@ -26,7 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		LOGO 
 		</div>
 		<div class="col-md-6 column">
-		${dd }
 		LOGIN 
 		</div>
 	</div>
