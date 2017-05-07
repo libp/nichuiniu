@@ -1,4 +1,10 @@
 @CHARSET "UTF-8";
+html {
+	background: #f1f2f6;
+	color: #6f6f6f;
+	font-size: 14px;
+	font-family: "Microsoft YaHei";
+}
 body {
       background-color: #CCC;
 }
