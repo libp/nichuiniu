@@ -22,7 +22,6 @@
 <div class="container">
 	<div class="row clearfix" style="margin-top:50px;">
 		<div class="col-md-4 column">
-		<p>${basePath } </p>
 		</div>
 		<div class="col-md-8 column">
 		</div>

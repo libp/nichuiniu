@@ -128,25 +128,12 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.7.3</version>
 		</dependency>
-		<!-- jsp标签库 -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
 		<!-- java servlet依赖 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-		<!-- jsp依赖，用于解析EL表达式 -->
-		<dependency>
-        	<groupId>javax.servlet</groupId>
-	        <artifactId>jsp-api</artifactId>
-	        <version>2.0</version>
-	        <scope>provided</scope>
-	    </dependency>
 		
 	</dependencies>
 	<build>

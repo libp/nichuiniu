@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +35,10 @@ public class StoryController {
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
 		logger.info("系统开始运行........................");
 		ModelAndView view = new ModelAndView("index");
+        String path = request.getContextPath();
+		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+                + request.getServerPort() + path + "/";
+		request.setAttribute("basePath", basePath);
 		return view;
 	}
 }
