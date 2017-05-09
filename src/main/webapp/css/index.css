@@ -1,10 +1,40 @@
 @CHARSET "UTF-8";
-html {
-	background: #f1f2f6;
+/* 和bootstrap一样的属性名，css文件后加载的有效，所以该css放在bootstrap.css后面 */
+html,body {
+	background: #ebebeb;
 	color: #6f6f6f;
 	font-size: 14px;
 	font-family: "Microsoft YaHei";
+	background-clip: padding-box;
 }
-body {
-      background-color: #CCC;
+
+.chuiniu{
+	background: #ffffff;
+	padding: 35px;
+	margin-bottom:35px;
+	position:relative;
+	overflow:hidden;
+}
+.chuiniu-1{
+	color: #303030;
+	margin-bottom:15px;
+}
+.chuiniu-1-1{
+	width:88%;
+	font-size:16px;
+	float:left;
+}
+.chuiniu-1-2{
+	width:12%;
+	float:left;
+	
+}
+.chuiniu-2-1{
+	width:33.3333333%;
+	float:left;
+}
+.chuiniu-2-2{
+	width:66.6666666%;
+	padding-left:50px;
+	float:left;
 }
