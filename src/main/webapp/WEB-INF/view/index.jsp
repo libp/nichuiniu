@@ -17,46 +17,117 @@
 <script src="${basePath }js/common/bootstrap.js"></script>
 <script src="${basePath }js/index.js"></script>
 
+
 <title>你吹牛</title>
 </head>
 <body>
-<div class="container">
-	<div class="row clearfix " style="margin-top:50px;">
-		<div class="col-md-4 column">
+<div class="row clearfix head" >
+		<div class="col-md-2 column">
+			<div class="head-logo">
+				<img src="${basePath }images/logo.svg" class="img-responsive"></img>
+			</div>
 		</div>
-		<div class="col-md-8 column">
+		<div class="col-md-5 column">
+			<div class="head-word">
+				<h2>你吹过的牛皮，这里都记着呢</h2>
+			</div>
+		</div>
+		<div class="col-md-5 column">
+			<div class="head-login">
+				<a href=""><img src="${basePath }images/weixin.svg" class="img-responsive"></img></a>
+				<a href=""><img src="${basePath }images/weibo.svg" class="img-responsive"></img></a>
+				<p>点击登录</p>
+			</div>
 		</div>
 	</div>
+<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-8 column">
 			<div class="chuiniu">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
-		       			人类将在2050年开发家庭室核聚变发电站，每家每户都有用不完的清洁安全能源
+		       			<p>
+							<a href="">人类将在2050年开发家庭室核聚变发电站，人人都有用不完的清洁安全能源</a>
+						</p>
+		       			
 		       		</div>
 		       		<div class="chuiniu-1-2">
 			       		<button type="button" class="btn btn-default btn-lg">
-							<span class="glyphicon glyphicon-thumbs-up"></span>
+							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">12</span>
 						</button>
 					</div>
 		       	</div>
 		       	<div class="chuiniu-2">
-		       		<div class="chuiniu-2-1">
-		       			<img alt="图片不显示时显示文字" class="img-rounded img-responsive" src="images/common/default.png" />
-					</div>
 		       		<div class="chuiniu-2-2">
-		       			<ul  class="list-unstyled">
-						<li>马斯卡</li><li>2017年5月6日</li>
-						<li><a href="www.baidu.com">参考链接</a></li>
+		       			<ul  class="list-inline">
+						<li>马斯克</li><li>2017年5月6日</li>
 						</ul>
 		       		</div>
 				</div>
 	   		</div>
-					
-				
-		
-		</div>			
+	   		<div class="chuiniu">
+				<div class="chuiniu-1 clearfix">
+		       		<div class="chuiniu-1-1">
+		       			<p>
+		       				<!-- 应该限制字数在33个以内 -->
+							<a href="">人类将在2050年开发家庭室核聚变发电站，人人都有用不完的清洁安全能源</a>
+						</p>
+		       			
+		       		</div>
+		       		<div class="chuiniu-1-2">
+			       		<button type="button" class="btn btn-default btn-lg">
+							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">12</span>
+						</button>
+					</div>
+		       	</div>
+		       	<div class="chuiniu-2 clearfix">
+		       		<div class="chuiniu-2-2">
+		       			<ul  class="list-inline">
+						<li>马斯克</li><li>2017年5月6日</li>
+						</ul>
+		       		</div>
+				</div>
+	   		</div>
+	   		<div>
+				<ul class="pagination">
+					<li>
+						 <a href="#">Prev</a>
+					</li>
+					<li>
+						 <a href="#">1</a>
+					</li>
+					<li>
+						 <a href="#">2</a>
+					</li>
+					<li>
+						 <a href="#">3</a>
+					</li>
+					<li>
+						 <a href="#">4</a>
+					</li>
+					<li>
+						 <a href="#">5</a>
+					</li>
+					<li>
+						 <a href="#">Next</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+		<div class="col-md-4 column">
+			<div class="main-right">
+				<h3 class="title">社区</h3>
+				<div class="">
+					<p>QQ群：12345678</p>
+					<p><a href=""><i class="fa fa-weibo"></i> 官方微博</a></p>
+					<p>百度贴吧</p>
+				</div>
+			</div>
+			
+			
+		</div>
 	</div>
+
 </div>
 
 </body>
