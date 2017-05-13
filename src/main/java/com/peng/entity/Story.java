@@ -1,109 +1,135 @@
 package com.peng.entity;
-/** 
- * @author Peng
- * @Email 924701358@qq.com
- * @date 2017年4月30日 下午10:24:47 
- * @version 1.0 
- * @return  
- */
-/**
- * tbl_peng_content
- * @author Peng
- *
- */
-public class Story {
-	private int id ;
-	private String content ; //内容
-	private String author ; //作者
-	private String createTime ; //吹牛皮时间
-	private String realizeTime ; //牛皮实现时间
-	private String originPlace ; //牛皮起源的地方，知名网站、报纸、电视
-	private int clickTime ; //点击量
-	private int agreeTime ; //点赞数
-	private int show ; //是否显示1显示，0不显示
-	private int  StoryType ;//故事类型：1、时事、2政治、3企业、4个人
-	private String StroyTag;//故事的标签
-	private int Source ;//牛皮来源：1、用户提供；0蜘蛛抓取
-	private String Url ;//来源URL地址
-	public int getStoryType() {
-		return StoryType;
-	}
-	public void setStoryType(int storyType) {
-		StoryType = storyType;
-	}
-	public String getStroyTag() {
-		return StroyTag;
-	}
-	public void setStroyTag(String stroyTag) {
-		StroyTag = stroyTag;
-	}
-	public int getSource() {
-		return Source;
-	}
-	public void setSource(int source) {
-		Source = source;
-	}
-	public String getUrl() {
-		return Url;
-	}
-	public void setUrl(String url) {
-		Url = url;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public String getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
-	public String getRealizeTime() {
-		return realizeTime;
-	}
-	public void setRealizeTime(String realizeTime) {
-		this.realizeTime = realizeTime;
-	}
-	public String getOriginPlace() {
-		return originPlace;
-	}
-	public void setOriginPlace(String originPlace) {
-		this.originPlace = originPlace;
-	}
-	public int getClickTime() {
-		return clickTime;
-	}
-	public void setClickTime(int clickTime) {
-		this.clickTime = clickTime;
-	}
-	public int getAgreeTime() {
-		return agreeTime;
-	}
-	public void setAgreeTime(int agreeTime) {
-		this.agreeTime = agreeTime;
-	}
-	public int getShow() {
-		return show;
-	}
-	public void setShow(int show) {
-		this.show = show;
-	}
-	
-	
-}
 
+import java.util.Date;
+
+public class Story {
+    private Integer id;
+
+    private String content;
+
+    private String author;
+
+    private Date createtime;
+
+    private Date realizetime;
+
+    private String originplace;
+
+    private Integer clicktime;
+
+    private Integer agreetime;
+
+    private Integer show;
+
+    private String storytype;
+
+    private String stroytag;
+
+    private Integer source;
+
+    private String url;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getRealizetime() {
+        return realizetime;
+    }
+
+    public void setRealizetime(Date realizetime) {
+        this.realizetime = realizetime;
+    }
+
+    public String getOriginplace() {
+        return originplace;
+    }
+
+    public void setOriginplace(String originplace) {
+        this.originplace = originplace == null ? null : originplace.trim();
+    }
+
+    public Integer getClicktime() {
+        return clicktime;
+    }
+
+    public void setClicktime(Integer clicktime) {
+        this.clicktime = clicktime;
+    }
+
+    public Integer getAgreetime() {
+        return agreetime;
+    }
+
+    public void setAgreetime(Integer agreetime) {
+        this.agreetime = agreetime;
+    }
+
+    public Integer getShow() {
+        return show;
+    }
+
+    public void setShow(Integer show) {
+        this.show = show;
+    }
+
+    public String getStorytype() {
+        return storytype;
+    }
+
+    public void setStorytype(String storytype) {
+        this.storytype = storytype == null ? null : storytype.trim();
+    }
+
+    public String getStroytag() {
+        return stroytag;
+    }
+
+    public void setStroytag(String stroytag) {
+        this.stroytag = stroytag == null ? null : stroytag.trim();
+    }
+
+    public Integer getSource() {
+        return source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+}

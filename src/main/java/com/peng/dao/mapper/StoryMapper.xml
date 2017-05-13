@@ -1,18 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.peng.dao.StoryMapper">
-	<resultMap id="story" type="com.peng.entity.Story">
-		<result column="Id" property="id" jdbcType="INTEGER" />
-		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP" />
-		<result column="Author" property="author" jdbcType="VARCHAR" />
-		<result column="Content" property="content" jdbcType="VARCHAR" />
-		<result column="Clicks" property="clicks" jdbcType="INTEGER" />
-
-	</resultMap>
-
-	<select id="getStoryContent" resultType="String" parameterType="java.lang.Integer">
-		select content from tbl_peng_content where id = ${id};
-	</select>
-
-
+  <resultMap id="BaseResultMap" type="com.peng.entity.Story">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Content" jdbcType="VARCHAR" property="content" />
+    <result column="Author" jdbcType="VARCHAR" property="author" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="RealizeTime" jdbcType="TIMESTAMP" property="realizetime" />
+    <result column="OriginPlace" jdbcType="VARCHAR" property="originplace" />
+    <result column="ClickTime" jdbcType="INTEGER" property="clicktime" />
+    <result column="AgreeTime" jdbcType="INTEGER" property="agreetime" />
+    <result column="Show" jdbcType="INTEGER" property="show" />
+    <result column="StoryType" jdbcType="VARCHAR" property="storytype" />
+    <result column="StroyTag" jdbcType="VARCHAR" property="stroytag" />
+    <result column="Source" jdbcType="INTEGER" property="source" />
+    <result column="Url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Content, Author, CreateTime, RealizeTime, OriginPlace, ClickTime, AgreeTime, 
+    Show, StoryType, StroyTag, Source, Url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_peng_story
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_peng_story
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.peng.entity.Story">
+    insert into tbl_peng_story (Id, Content, Author, 
+      CreateTime, RealizeTime, OriginPlace, 
+      ClickTime, AgreeTime, Show, 
+      StoryType, StroyTag, Source, 
+      Url)
+    values (#{id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{realizetime,jdbcType=TIMESTAMP}, #{originplace,jdbcType=VARCHAR}, 
+      #{clicktime,jdbcType=INTEGER}, #{agreetime,jdbcType=INTEGER}, #{show,jdbcType=INTEGER}, 
+      #{storytype,jdbcType=VARCHAR}, #{stroytag,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, 
+      #{url,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.peng.entity.Story">
+    insert into tbl_peng_story
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="content != null">
+        Content,
+      </if>
+      <if test="author != null">
+        Author,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="realizetime != null">
+        RealizeTime,
+      </if>
+      <if test="originplace != null">
+        OriginPlace,
+      </if>
+      <if test="clicktime != null">
+        ClickTime,
+      </if>
+      <if test="agreetime != null">
+        AgreeTime,
+      </if>
+      <if test="show != null">
+        Show,
+      </if>
+      <if test="storytype != null">
+        StoryType,
+      </if>
+      <if test="stroytag != null">
+        StroyTag,
+      </if>
+      <if test="source != null">
+        Source,
+      </if>
+      <if test="url != null">
+        Url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realizetime != null">
+        #{realizetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originplace != null">
+        #{originplace,jdbcType=VARCHAR},
+      </if>
+      <if test="clicktime != null">
+        #{clicktime,jdbcType=INTEGER},
+      </if>
+      <if test="agreetime != null">
+        #{agreetime,jdbcType=INTEGER},
+      </if>
+      <if test="show != null">
+        #{show,jdbcType=INTEGER},
+      </if>
+      <if test="storytype != null">
+        #{storytype,jdbcType=VARCHAR},
+      </if>
+      <if test="stroytag != null">
+        #{stroytag,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.peng.entity.Story">
+    update tbl_peng_story
+    <set>
+      <if test="content != null">
+        Content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        Author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realizetime != null">
+        RealizeTime = #{realizetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originplace != null">
+        OriginPlace = #{originplace,jdbcType=VARCHAR},
+      </if>
+      <if test="clicktime != null">
+        ClickTime = #{clicktime,jdbcType=INTEGER},
+      </if>
+      <if test="agreetime != null">
+        AgreeTime = #{agreetime,jdbcType=INTEGER},
+      </if>
+      <if test="show != null">
+        Show = #{show,jdbcType=INTEGER},
+      </if>
+      <if test="storytype != null">
+        StoryType = #{storytype,jdbcType=VARCHAR},
+      </if>
+      <if test="stroytag != null">
+        StroyTag = #{stroytag,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        Source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        Url = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.peng.entity.Story">
+    update tbl_peng_story
+    set Content = #{content,jdbcType=VARCHAR},
+      Author = #{author,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      RealizeTime = #{realizetime,jdbcType=TIMESTAMP},
+      OriginPlace = #{originplace,jdbcType=VARCHAR},
+      ClickTime = #{clicktime,jdbcType=INTEGER},
+      AgreeTime = #{agreetime,jdbcType=INTEGER},
+      Show = #{show,jdbcType=INTEGER},
+      StoryType = #{storytype,jdbcType=VARCHAR},
+      StroyTag = #{stroytag,jdbcType=VARCHAR},
+      Source = #{source,jdbcType=INTEGER},
+      Url = #{url,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

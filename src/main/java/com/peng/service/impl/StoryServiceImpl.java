@@ -24,8 +24,7 @@ public class StoryServiceImpl implements StoryService{
 	@Override
 	public List<Story> getStoryContent() {
 		// TODO Auto-generated method stub
-		List<Story> list = storyMapper.getStoryContent();
-		return list;
+		return null;
 		
 	}
 
