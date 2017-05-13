@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Component;
+
 import com.peng.dao.StoryMapper;
 import com.peng.entity.Story;
 import com.peng.service.StoryService;
@@ -16,6 +18,7 @@ import com.peng.service.StoryService;
  * @return  
  */
 
+@Component
 public class StoryServiceImpl implements StoryService{
 	
 	@Resource
@@ -26,6 +29,11 @@ public class StoryServiceImpl implements StoryService{
 		// TODO Auto-generated method stub
 		return null;
 		
+	}
+	
+	public Story getStoryById(int id){
+		Story story = storyMapper.selectByPrimaryKey(id);
+		return story;
 	}
 
 }

@@ -17,5 +17,7 @@ public interface StoryService {
 	 * 获取牛皮内容
 	 */
 	public List<Story> getStoryContent();
+	
+	public Story getStoryById(int id);
 }
 

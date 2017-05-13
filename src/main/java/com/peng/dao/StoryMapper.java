@@ -3,15 +3,15 @@ package com.peng.dao;
 import com.peng.entity.Story;
 
 public interface StoryMapper {
-    int deleteByPrimaryKey(Integer id);
+    public int deleteByPrimaryKey(Integer id);
 
-    int insert(Story record);
+    public int insert(Story record);
 
-    int insertSelective(Story record);
+    public int insertSelective(Story record);
 
-    Story selectByPrimaryKey(Integer id);
+    public Story selectByPrimaryKey(int id);
 
-    int updateByPrimaryKeySelective(Story record);
+    public int updateByPrimaryKeySelective(Story record);
 
-    int updateByPrimaryKey(Story record);
+    public int updateByPrimaryKey(Story record);
 }

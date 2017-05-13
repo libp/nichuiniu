@@ -19,7 +19,7 @@ public class Story {
 
     private Integer agreetime;
 
-    private Integer show;
+    private Integer IsShow;
 
     private String storytype;
 
@@ -94,11 +94,11 @@ public class Story {
     }
 
     public Integer getShow() {
-        return show;
+        return IsShow;
     }
 
     public void setShow(Integer show) {
-        this.show = show;
+        this.IsShow = show;
     }
 
     public String getStorytype() {

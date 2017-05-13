@@ -10,7 +10,7 @@
     <result column="OriginPlace" jdbcType="VARCHAR" property="originplace" />
     <result column="ClickTime" jdbcType="INTEGER" property="clicktime" />
     <result column="AgreeTime" jdbcType="INTEGER" property="agreetime" />
-    <result column="Show" jdbcType="INTEGER" property="show" />
+    <result column="IsShow" jdbcType="INTEGER" property="show" />
     <result column="StoryType" jdbcType="VARCHAR" property="storytype" />
     <result column="StroyTag" jdbcType="VARCHAR" property="stroytag" />
     <result column="Source" jdbcType="INTEGER" property="source" />
@@ -18,14 +18,18 @@
   </resultMap>
   <sql id="Base_Column_List">
     Id, Content, Author, CreateTime, RealizeTime, OriginPlace, ClickTime, AgreeTime, 
-    Show, StoryType, StroyTag, Source, Url
+    IsShow, StoryType, StroyTag, Source, Url
   </sql>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from tbl_peng_story
     where Id = #{id,jdbcType=INTEGER}
   </select>
+  
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tbl_peng_story
     where Id = #{id,jdbcType=INTEGER}

@@ -1,7 +1,10 @@
 package com.peng.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 
 
 
@@ -15,6 +18,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.peng.entity.Story;
+import com.peng.service.StoryService;
 
 
 
@@ -30,6 +36,8 @@ public class StoryController {
 	
 	Logger logger = Logger.getLogger(StoryController.class);
 	
+	@Resource
+    private StoryService storyService;
 	
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
@@ -39,7 +47,7 @@ public class StoryController {
                 + request.getServerPort() + request.getContextPath() + "/";
 		request.setAttribute("basePath", basePath);
 		
-		
+		Story story = storyService.getStoryById(1);
 		
 		return view;
 	}
