@@ -21,6 +21,34 @@ public class Story {
 	private int clickTime ; //点击量
 	private int agreeTime ; //点赞数
 	private int show ; //是否显示1显示，0不显示
+	private int  StoryType ;//故事类型：1、时事、2政治、3企业、4个人
+	private String StroyTag;//故事的标签
+	private int Source ;//牛皮来源：1、用户提供；0蜘蛛抓取
+	private String Url ;//来源URL地址
+	public int getStoryType() {
+		return StoryType;
+	}
+	public void setStoryType(int storyType) {
+		StoryType = storyType;
+	}
+	public String getStroyTag() {
+		return StroyTag;
+	}
+	public void setStroyTag(String stroyTag) {
+		StroyTag = stroyTag;
+	}
+	public int getSource() {
+		return Source;
+	}
+	public void setSource(int source) {
+		Source = source;
+	}
+	public String getUrl() {
+		return Url;
+	}
+	public void setUrl(String url) {
+		Url = url;
+	}
 	public int getId() {
 		return id;
 	}

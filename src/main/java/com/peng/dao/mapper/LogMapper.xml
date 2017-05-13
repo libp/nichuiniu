@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peng.dao.LogMapper">
+  <resultMap id="BaseResultMap" type="com.peng.entity.Log">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="TIMESTAMP" property="logtime" />
+    <result column="ClassName" jdbcType="VARCHAR" property="classname" />
+    <result column="Level" jdbcType="VARCHAR" property="level" />
+    <result column="Message" jdbcType="VARCHAR" property="message" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, ClassName, Level, Message
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_peng_log
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_peng_log
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.peng.entity.Log">
+    insert into tbl_peng_log (Id, LogTime, ClassName, 
+      Level, Message)
+    values (#{id,jdbcType=INTEGER}, #{logtime,jdbcType=TIMESTAMP}, #{classname,jdbcType=VARCHAR}, 
+      #{level,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.peng.entity.Log">
+    insert into tbl_peng_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logtime != null">
+        LogTime,
+      </if>
+      <if test="classname != null">
+        ClassName,
+      </if>
+      <if test="level != null">
+        Level,
+      </if>
+      <if test="message != null">
+        Message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.peng.entity.Log">
+    update tbl_peng_log
+    <set>
+      <if test="logtime != null">
+        LogTime = #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classname != null">
+        ClassName = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        Level = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        Message = #{message,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.peng.entity.Log">
+    update tbl_peng_log
+    set LogTime = #{logtime,jdbcType=TIMESTAMP},
+      ClassName = #{classname,jdbcType=VARCHAR},
+      Level = #{level,jdbcType=VARCHAR},
+      Message = #{message,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

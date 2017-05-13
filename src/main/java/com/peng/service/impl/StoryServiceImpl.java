@@ -1,8 +1,11 @@
 package com.peng.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import com.peng.dao.StoryMapper;
+import com.peng.entity.Story;
 import com.peng.service.StoryService;
 
 /** 
@@ -19,10 +22,10 @@ public class StoryServiceImpl implements StoryService{
 	private StoryMapper storyMapper;
 	
 	@Override
-	public String getStoryContent(int id) {
+	public List<Story> getStoryContent() {
 		// TODO Auto-generated method stub
-		String content = storyMapper.getStoryContent(id);
-		return content;
+		List<Story> list = storyMapper.getStoryContent();
+		return list;
 		
 	}
 

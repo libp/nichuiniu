@@ -35,10 +35,12 @@ public class StoryController {
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
 		logger.info("系统开始运行........................");
 		ModelAndView view = new ModelAndView("index");
-        String path = request.getContextPath();
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-                + request.getServerPort() + path + "/";
+                + request.getServerPort() + request.getContextPath() + "/";
 		request.setAttribute("basePath", basePath);
+		
+		
+		
 		return view;
 	}
 }

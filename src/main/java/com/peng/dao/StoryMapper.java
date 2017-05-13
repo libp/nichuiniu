@@ -1,4 +1,9 @@
 package com.peng.dao;
+
+import java.util.List;
+
+import com.peng.entity.Story;
+
 /** 
  * @author Peng
  * @Email 924701358@qq.com
@@ -8,6 +13,6 @@ package com.peng.dao;
  */
 
 public interface StoryMapper {
-	public String getStoryContent(int id);
+	public List<Story> getStoryContent();
 }
 

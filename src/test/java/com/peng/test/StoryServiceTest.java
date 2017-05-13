@@ -53,7 +53,7 @@ public class StoryServiceTest {
 	public final void testGetStoryId() {
 		String content = "";
 		int id = 1;
-		content = storyService.getStoryContent(id);
+//		content = storyService.getStoryContent(id);
 		System.out.println(content);
 	}
 

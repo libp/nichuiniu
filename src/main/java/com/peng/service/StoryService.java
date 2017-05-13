@@ -1,4 +1,9 @@
 package com.peng.service;
+
+import java.util.List;
+
+import com.peng.entity.Story;
+
 /** 
  * @author Peng
  * @Email 924701358@qq.com
@@ -11,6 +16,6 @@ public interface StoryService {
 	/**
 	 * 获取牛皮内容
 	 */
-	public String getStoryContent(int id);
+	public List<Story> getStoryContent();
 }
 
