@@ -1,7 +1,9 @@
 package com.peng.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.peng.common.GridBean;
 import com.peng.entity.Story;
 
 /** 
@@ -18,6 +20,20 @@ public interface StoryService {
 	 */
 	public List<Story> getStoryContent();
 	
+	/**
+	 * 根据Id查询牛皮
+	 * @param id
+	 * @return
+	 */
 	public Story getStoryById(int id);
+	
+	/**
+	 * 根据分页批量查询牛皮
+	 * @param page
+	 * @param rows
+	 * @param map
+	 * @return
+	 */
+	public GridBean getStoryList(int page, int rows,Map<String, String> map);
 }
 

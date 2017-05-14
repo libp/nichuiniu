@@ -1,11 +1,15 @@
 package com.peng.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.peng.common.GridBean;
 import com.peng.dao.StoryMapper;
 import com.peng.entity.Story;
 import com.peng.service.StoryService;
@@ -34,6 +38,20 @@ public class StoryServiceImpl implements StoryService{
 	public Story getStoryById(int id){
 		Story story = storyMapper.selectByPrimaryKey(id);
 		return story;
+	}
+
+	@Override
+	public GridBean getStoryList(int page, int rows, Map<String, String> map) {
+		// TODO Auto-generated method stub
+		List<Story> list = null;
+		GridBean gridBean = null;
+		//pageHelper分页拦截器-------------------------------------------------结合mybatis.xml深入理解下这个东西
+		PageHelper.startPage(page, rows);
+		list = storyMapper.getStoryList(map);
+		int totalpage = ((Page<?>) list).getPages();
+		Long totalNum = ((Page<?>) list).getTotal();
+		gridBean = new GridBean(page, totalpage, totalNum.intValue(), list);
+		return gridBean;
 	}
 
 }

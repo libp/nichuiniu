@@ -1,8 +1,15 @@
 package com.peng.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
+
+
 
 
 
@@ -19,6 +26,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.peng.common.GridBean;
 import com.peng.entity.Story;
 import com.peng.service.StoryService;
 
@@ -46,7 +55,11 @@ public class StoryController {
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
                 + request.getServerPort() + request.getContextPath() + "/";
 		request.setAttribute("basePath", basePath);
-		
+		Map<String, String> map = new HashMap<String, String>();
+		int page = 1;
+		int rows = 12;
+		GridBean gridBean = storyService.getStoryList(page, rows, map);
+		String result = JSONArray.toJSONString(gridBean);
 		Story story = storyService.getStoryById(1);
 		
 		return view;

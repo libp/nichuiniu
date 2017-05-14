@@ -28,6 +28,13 @@
     where Id = #{id,jdbcType=INTEGER}
   </select>
   
+  <select id="getStoryList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_peng_story
+    where 1=1
+  </select>
+  
   
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
