@@ -10,9 +10,9 @@ public class Story {
 
     private String author;
 
-    private Date createtime;
+    private String createtime;
 
-    private Date realizetime;
+    private String realizetime;
 
     private String originplace;
 
@@ -54,19 +54,19 @@ public class Story {
         this.author = author == null ? null : author.trim();
     }
 
-    public Date getCreatetime() {
+    public String getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Date createtime) {
+    public void setCreatetime(String createtime) {
         this.createtime = createtime;
     }
 
-    public Date getRealizetime() {
+    public String getRealizetime() {
         return realizetime;
     }
 
-    public void setRealizetime(Date realizetime) {
+    public void setRealizetime(String realizetime) {
         this.realizetime = realizetime;
     }
 
