@@ -16,7 +16,11 @@
 <script src="${basePath }js/common/jquery-3.1.0.min.js"></script>
 <script src="${basePath }js/common/bootstrap.js"></script>
 <script src="${basePath }js/index.js"></script>
-
+<script>
+	jQuery(function($) {
+		nichuiniu.init('<%=basePath%>');
+	});
+</script>
 
 <title>你吹牛</title>
 </head>
@@ -42,14 +46,13 @@
 	</div>
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-8 column">
-			<div class="chuiniu">
+		<div class="col-md-8 column" id ="content">
+			<!-- <div class="chuiniu">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
 		       			<p>
-							<a href="">人类将在2050年开发家庭室核聚变发电站，人人都有用不完的清洁安全能源</a>
+							<a href=""></a>
 						</p>
-		       			
 		       		</div>
 		       		<div class="chuiniu-1-2">
 			       		<button type="button" class="btn btn-default btn-lg">
@@ -64,30 +67,8 @@
 						</ul>
 		       		</div>
 				</div>
-	   		</div>
-	   		<div class="chuiniu">
-				<div class="chuiniu-1 clearfix">
-		       		<div class="chuiniu-1-1">
-		       			<p>
-		       				<!-- 应该限制字数在33个以内 -->
-							<a href="">人类将在2050年开发家庭室核聚变发电站，人人都有用不完的清洁安全能源</a>
-						</p>
-		       			
-		       		</div>
-		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-default btn-lg">
-							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">12</span>
-						</button>
-					</div>
-		       	</div>
-		       	<div class="chuiniu-2 clearfix">
-		       		<div class="chuiniu-2-2">
-		       			<ul  class="list-inline">
-						<li>马斯克</li><li>2017年5月6日</li>
-						</ul>
-		       		</div>
-				</div>
-	   		</div>
+	   		</div> -->
+	   		
 	   		<div>
 				<ul class="pagination">
 					<li>

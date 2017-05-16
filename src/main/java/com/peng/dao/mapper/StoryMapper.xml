@@ -5,8 +5,8 @@
     <id column="Id" jdbcType="INTEGER" property="id" />
     <result column="Content" jdbcType="VARCHAR" property="content" />
     <result column="Author" jdbcType="VARCHAR" property="author" />
-    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="RealizeTime" jdbcType="TIMESTAMP" property="realizetime" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="CreateTime" />
+    <result column="RealizeTime" jdbcType="TIMESTAMP" property="RealizeTime" />
     <result column="OriginPlace" jdbcType="VARCHAR" property="originplace" />
     <result column="ClickTime" jdbcType="INTEGER" property="clicktime" />
     <result column="AgreeTime" jdbcType="INTEGER" property="agreetime" />
@@ -17,7 +17,7 @@
     <result column="Url" jdbcType="VARCHAR" property="url" />
   </resultMap>
   <sql id="Base_Column_List">
-    Id, Content, Author, CreateTime, RealizeTime, OriginPlace, ClickTime, AgreeTime, 
+    Id, Content, Author, DATE_FORMAT(CreateTime,'%Y%m%d'), DATE_FORMAT(RealizeTime,'%Y%m%d'), OriginPlace, ClickTime, AgreeTime, 
     IsShow, StoryType, StroyTag, Source, Url
   </sql>
   
@@ -30,7 +30,8 @@
   
   <select id="getStoryList" parameterType="java.util.Map" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+   Id, Content, Author, CreateTime,RealizeTime, OriginPlace, ClickTime, AgreeTime, 
+    IsShow, StoryType, StroyTag, Source, Url
     from tbl_peng_story
     where 1=1
   </select>

@@ -2,6 +2,7 @@ package com.peng.entity;
 
 import java.util.Date;
 
+
 public class Story {
     private Integer id;
 

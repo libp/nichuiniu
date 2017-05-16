@@ -21,9 +21,14 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONArray;
@@ -57,12 +62,22 @@ public class StoryController {
 		request.setAttribute("basePath", basePath);
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
-		int rows = 12;
+		int rows = 10;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
-		String result = JSONArray.toJSONString(gridBean);
-		Story story = storyService.getStoryById(1);
-		
+//		Story story = storyService.getStoryById(1);
+		view.addObject("story", JSONArray.toJSONString(gridBean));
 		return view;
 	}
+	
+	@RequestMapping(value = "/storyList", method = { RequestMethod.GET })
+    @ResponseBody
+    public String autoBootListByDeviceID(HttpServletRequest request) {
+		Map<String, String> map = new HashMap<String, String>();
+		int page = 1;
+		int rows = 10;
+		GridBean gridBean = storyService.getStoryList(page, rows, map);
+		String result = JSONArray.toJSONString(gridBean);
+        return result;
+    }
 }
 

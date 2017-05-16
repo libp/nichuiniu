@@ -45,7 +45,7 @@ public class StoryServiceImpl implements StoryService{
 		// TODO Auto-generated method stub
 		List<Story> list = null;
 		GridBean gridBean = null;
-		//pageHelper分页拦截器-------------------------------------------------结合mybatis.xml深入理解下这个东西
+		//pageHelper分页拦截器 紧跟在这个方法后的第一个mybatis查询会被进行分页
 		PageHelper.startPage(page, rows);
 		list = storyMapper.getStoryList(map);
 		int totalpage = ((Page<?>) list).getPages();
