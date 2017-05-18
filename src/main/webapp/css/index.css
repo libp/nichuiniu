@@ -97,3 +97,24 @@ a:hover {
   left: 0;
   bottom: -1px;
 }
+.chuiniu-meta{
+	color:#959595;
+	margin:14px 0 0px;
+}
+.chuiniu-title,.chuiniu-meta{
+	text-align:center;
+}
+.chuiniu-title h1{
+	color:#303030;
+}
+.chuiniu-content{
+	font:400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", 
+	"Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+	color:#444443;
+	margin:30px 0;
+}
+.chuiniu-footer{
+	margin-top:30px;
+	border-top:1px solid #ebebeb;
+	padding:21px 0;
+}

@@ -46,12 +46,12 @@
 	</div>
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-8 column" id ="content">
-			<!-- <div class="chuiniu">
+		<main class="col-md-8 column">
+			<article class="chuiniu">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
 		       			<p>
-							<a href=""></a>
+							<a href="">十三五核电投资超5000亿 各省为争第一核电站头破血流</a>
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
@@ -67,35 +67,10 @@
 						</ul>
 		       		</div>
 				</div>
-	   		</div> -->
-	   		
-	   		<div>
-				<ul class="pagination">
-					<li>
-						 <a href="#">Prev</a>
-					</li>
-					<li>
-						 <a href="#">1</a>
-					</li>
-					<li>
-						 <a href="#">2</a>
-					</li>
-					<li>
-						 <a href="#">3</a>
-					</li>
-					<li>
-						 <a href="#">4</a>
-					</li>
-					<li>
-						 <a href="#">5</a>
-					</li>
-					<li>
-						 <a href="#">Next</a>
-					</li>
-				</ul>
-			</div>		
-		</div>
-		<div class="col-md-4 column">
+	   		</article> 
+	   		<div id="demo1"></div>		
+		</main>
+		<aside class="col-md-4 column">
 			<div class="main-right">
 				<h3 class="title">社区</h3>
 				<div class="">
@@ -104,11 +79,8 @@
 					<p>百度贴吧</p>
 				</div>
 			</div>
-			
-			
-		</div>
+		</aside>
 	</div>
-
 </div>
 
 </body>

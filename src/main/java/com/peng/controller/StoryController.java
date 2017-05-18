@@ -79,5 +79,23 @@ public class StoryController {
 		String result = JSONArray.toJSONString(gridBean);
         return result;
     }
+	
+	
+	@RequestMapping("/article")
+	public ModelAndView article(HttpServletRequest request,HttpServletResponse response) {
+		logger.info("加载文章内容........................");
+		ModelAndView view = new ModelAndView("article");
+		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+                + request.getServerPort() + request.getContextPath() + "/";
+		request.setAttribute("basePath", basePath);
+		Map<String, String> map = new HashMap<String, String>();
+		int page = 1;
+		int rows = 10;
+		GridBean gridBean = storyService.getStoryList(page, rows, map);
+//		Story story = storyService.getStoryById(1);
+		view.addObject("story", JSONArray.toJSONString(gridBean));
+		return view;
+	}
+	
 }
 
