@@ -27,6 +27,7 @@
 	<mvc:resources mapping="/file/**" location="/file/" />
 	<mvc:resources mapping="/modulejs/**" location="/modulejs/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/html/**" location="/html/" />
 
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean
