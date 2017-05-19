@@ -55,7 +55,7 @@ public class StoryController {
 	
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
-		logger.info("系统开始运行........................");
+		logger.info("systemt begin run........................");
 		ModelAndView view = new ModelAndView("index");
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
                 + request.getServerPort() + request.getContextPath() + "/";
@@ -64,7 +64,6 @@ public class StoryController {
 		int page = 1;
 		int rows = 10;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
-//		Story story = storyService.getStoryById(1);
 		view.addObject("story", JSONArray.toJSONString(gridBean));
 		return view;
 	}
@@ -72,6 +71,7 @@ public class StoryController {
 	@RequestMapping(value = "/storyList", method = { RequestMethod.GET })
     @ResponseBody
     public String autoBootListByDeviceID(HttpServletRequest request) {
+		logger.info("loading article list........................");
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
 		int rows = 10;
@@ -81,19 +81,15 @@ public class StoryController {
     }
 	
 	
-	@RequestMapping("/article")
+	@RequestMapping("/a")
 	public ModelAndView article(HttpServletRequest request,HttpServletResponse response) {
-		logger.info("加载文章内容........................");
+		logger.info("loading article content........................");
 		ModelAndView view = new ModelAndView("article");
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
                 + request.getServerPort() + request.getContextPath() + "/";
 		request.setAttribute("basePath", basePath);
-		Map<String, String> map = new HashMap<String, String>();
-		int page = 1;
-		int rows = 10;
-		GridBean gridBean = storyService.getStoryList(page, rows, map);
-//		Story story = storyService.getStoryById(1);
-		view.addObject("story", JSONArray.toJSONString(gridBean));
+		Story story = storyService.getStoryById(1);
+		view.addObject("story", story);
 		return view;
 	}
 	

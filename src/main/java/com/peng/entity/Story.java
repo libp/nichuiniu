@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class Story {
     private Integer id;
+    
+    private String title;
 
     private String content;
 
@@ -30,6 +32,14 @@ public class Story {
 
     private String url;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+    
     public Integer getId() {
         return id;
     }

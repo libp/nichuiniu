@@ -40,13 +40,13 @@
 			<div class="head-login">
 				<a href=""><img src="${basePath }images/weixin.svg" class="img-responsive"></img></a>
 				<a href=""><img src="${basePath }images/weibo.svg" class="img-responsive"></img></a>
-				<p>点击登录</p>
+				<p>做成腾讯样式的</p><!-- 包括分享 -->
 			</div>
 		</div>
 	</div>
 <div class="container">
 	<div class="row clearfix">
-		<main class="col-md-8 column">
+		<main class="col-md-8 column" id="content">
 			<article class="chuiniu">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
