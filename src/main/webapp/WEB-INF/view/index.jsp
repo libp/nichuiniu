@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 <script src="${basePath }js/index.js"></script>
 <script>
 	jQuery(function($) {
-		nichuiniu.init('<%=basePath%>');
+		<%-- nichuiniu.init('<%=basePath%>'); --%>
 	});
 </script>
 
@@ -47,6 +48,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<main class="col-md-8 column" id="content">
+		<c:foreach>
 			<article class="chuiniu">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
@@ -68,7 +70,7 @@
 		       		</div>
 				</div>
 	   		</article> 
-	   		<div id="demo1"></div>		
+	   	</c:foreach>
 		</main>
 		<aside class="col-md-4 column">
 			<div class="main-right">

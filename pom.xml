@@ -134,7 +134,13 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-		
+		<!-- 引入jstl解析标签 -->
+		<dependency>  
+		    <groupId>javax.servlet</groupId>  
+		    <artifactId>jstl</artifactId>  
+		    <version>1.2</version>  
+		</dependency>
+		<!-- 解析json -->
 		<dependency>  
 		    <groupId>com.alibaba</groupId>  
 		    <artifactId>fastjson</artifactId>  

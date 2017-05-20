@@ -25,6 +25,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -81,14 +82,16 @@ public class StoryController {
     }
 	
 	
-	@RequestMapping("/a")
-	public ModelAndView article(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping("/article/{articleId}")
+	public ModelAndView article(HttpServletRequest request,
+			@PathVariable String articleId,HttpServletResponse response) {
 		logger.info("loading article content........................");
 		ModelAndView view = new ModelAndView("article");
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
                 + request.getServerPort() + request.getContextPath() + "/";
 		request.setAttribute("basePath", basePath);
-		Story story = storyService.getStoryById(1);
+		int t = Integer.parseInt(articleId);
+		Story story = storyService.getStoryById(t);
 		view.addObject("story", story);
 		return view;
 	}
