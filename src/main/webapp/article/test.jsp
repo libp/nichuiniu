@@ -17,8 +17,8 @@
 	<a href="list">xx</a>
 	
 	<c:forEach var="i" begin="1" end="5">
-   Item <c:out value="${i}"/><p>
-</c:forEach>
+	   Item <c:out value="${i}"/><p>
+	</c:forEach>
 </div>
 </body>
 

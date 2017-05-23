@@ -1,6 +1,7 @@
 package com.peng.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -58,27 +59,25 @@ public class StoryController {
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
 		logger.info("systemt begin run........................");
 		ModelAndView view = new ModelAndView("index");
-		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-                + request.getServerPort() + request.getContextPath() + "/";
-		request.setAttribute("basePath", basePath);
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
 		int rows = 10;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
-		view.addObject("story", JSONArray.toJSONString(gridBean));
+		view.addObject("gridBean", gridBean);
 		return view;
 	}
 	
 	@RequestMapping(value = "/storyList", method = { RequestMethod.GET })
     @ResponseBody
-    public String autoBootListByDeviceID(HttpServletRequest request) {
+    public ModelAndView mainPage(HttpServletRequest request,
+             @RequestParam(value = "page", required = true) Integer page) {
 		logger.info("loading article list........................");
+		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
-		int page = 1;
 		int rows = 10;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
-		String result = JSONArray.toJSONString(gridBean);
-        return result;
+		view.addObject("gridBean", gridBean);
+        return view;
     }
 	
 	
@@ -87,9 +86,6 @@ public class StoryController {
 			@PathVariable String articleId,HttpServletResponse response) {
 		logger.info("loading article content........................");
 		ModelAndView view = new ModelAndView("article");
-		String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-                + request.getServerPort() + request.getContextPath() + "/";
-		request.setAttribute("basePath", basePath);
 		int t = Integer.parseInt(articleId);
 		Story story = storyService.getStoryById(t);
 		view.addObject("story", story);

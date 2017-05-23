@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 var nichuiniu = {
 		init: function(localhost){
 			this.baseUrl = localhost;
@@ -37,4 +36,27 @@ var nichuiniu = {
 		},
 }
 
+
+/*分页功能*/
+var page = {
+		init: function(page,total,records,size){
+			var pageList = "";
+			var currentPage = "1";
+			pageList = "<li><a href="storyList?page=1">首页</a></li><li><a href=\"+storyList?page=2+\"><<</a></li>";
+			if(i < total){
+				pageList = pageList+"<li><a href="storyList?page=i">i</a></li>"
+			}
+			pageList = pageList+"<li><a href="storyList?page=currentPage+1)+\">>></a></li><li><a href=\"+storyList?page=total+\">尾页</a></li>";
+			$("#pagination").html(pageList);
+			
+			
+			this.options = {
+					xxxx : '#pagenum',
+				}
+			this.action = {
+				queryStoryList : nichuiniu.baseUrl + 'storyList',
+			}
+			
+		},
+}
 
