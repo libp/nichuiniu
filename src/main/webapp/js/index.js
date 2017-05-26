@@ -46,7 +46,7 @@ var nichuiniu = {
 				curPage=1;
 			}
 			var middlenum = Math.ceil(pagenum/2); 
-			if(curPage<=middlenum){
+			if(curPage<=middlenum||totalPage<pagenum){
 				for(var i = 1;i<=pagenum&&i<=totalPage;i++){
 					domLi= this.createLi(i,curPage);
 					$(".pagination").append(domLi);
@@ -64,6 +64,7 @@ var nichuiniu = {
 					$(".pagination").append(domLi);
 				}
 			}
+			
 				
 		},
 		createLi: function(i,curPage){
