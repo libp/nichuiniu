@@ -19,7 +19,7 @@
 <script src="<%=basePath%>js/index.js"></script>
 <script>
 	jQuery(function($) {
-		<%-- nichuiniu.init('<%=basePath%>'); --%>
+		nichuiniu.init('<%=basePath%>');
 	});
 </script>
 
@@ -72,28 +72,7 @@
 		  	</article>
 	   		</c:forEach> 
 	   		<nav>
-	   			<ul class="pagination">
-		   			<li><a href="storyList?page=1">首页</a></li>
-		   			<c:set var="currentPage" value="${gridBean.page}"/>
-		   			<c:set var="totalPage" value="${gridBean.total}"/>
-		   			
-		   			<c:if test="${ currentPage> 1}">
-		   				<li><a href="storyList?page=${gridBean.page-1}"><<</a></li>
-		   			</c:if>
-	   				<c:if test="${currentPage > 2}">
-					   <li><a href="storyList?page=${currentPage-2}">${currentPage-2}</a></li>
-					   <li><a href="storyList?page=${currentPage-1}">${currentPage-1}</a></li>
-					</c:if>
-					<li><a href="storyList?page=${currentPage}">${currentPage}</a></li>
-					<li><a href="storyList?page=${currentPage+1}">${currentPage+1}</a></li>
-					<li><a href="storyList?page=${currentPage+2}">${currentPage+2}</a></li>
-					<li><a href="#">...</a></li>
-					
-					<c:if test="${ currentPage< totalPage}">
-		   				<li><a href="storyList?page=${gridBean.page+1}">>></a></li>
-		   			</c:if>
-				    
-				    <li><a href="storyList?page=${gridBean.total+1}">尾页</a></li>    
+	   			<ul class="pagination" curPage="${gridBean.page}" totalPage="${gridBean.total}">
 				</ul>
 	   		</nav>
 		</main>

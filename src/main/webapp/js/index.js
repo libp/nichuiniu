@@ -10,8 +10,8 @@ var nichuiniu = {
 				this.action = {
 					queryStoryList : nichuiniu.baseUrl + 'storyList',
 				}
-			this.initialization();
-			
+//			this.initialization();
+			this.page();
 		},
 		initialization: function(){
 			var _this = this;
@@ -34,29 +34,51 @@ var nichuiniu = {
 				   }
 			});
 		},
-}
-
-
-/*分页功能*/
-var page = {
-		init: function(page,total,records,size){
-			var pageList = "";
-			var currentPage = "1";
-			pageList = "<li><a href="storyList?page=1">首页</a></li><li><a href=\"+storyList?page=2+\"><<</a></li>";
-			if(i < total){
-				pageList = pageList+"<li><a href="storyList?page=i">i</a></li>"
+		/*分页功能*/
+		page:function(){
+			var curPage = parseInt($(".pagination").attr("curPage"));
+			var totalPage = parseInt($(".pagination").attr("totalPage"));
+			var pagenum = 5;
+			if(curPage>totalPage){
+				curPage=totalPage;
 			}
-			pageList = pageList+"<li><a href="storyList?page=currentPage+1)+\">>></a></li><li><a href=\"+storyList?page=total+\">尾页</a></li>";
-			$("#pagination").html(pageList);
-			
-			
-			this.options = {
-					xxxx : '#pagenum',
+			if(curPage<0){
+				curPage=1;
+			}
+			var middlenum = Math.ceil(pagenum/2); 
+			if(curPage<=middlenum){
+				for(var i = 1;i<=pagenum&&i<=totalPage;i++){
+					domLi= this.createLi(i,curPage);
+					$(".pagination").append(domLi);
 				}
-			this.action = {
-				queryStoryList : nichuiniu.baseUrl + 'storyList',
+			}else if(curPage+middlenum>totalPage){
+				for(var i = 1;i<=pagenum&&i<=totalPage;i++){
+					var j = totalPage-pagenum+i;
+					domLi= this.createLi(j,curPage);
+					$(".pagination").append(domLi);
+				}
+			}else{
+				for(var i = 1;i<=pagenum;i++){
+					var j = curPage-middlenum+i;
+					domLi= this.createLi(j,curPage);
+					$(".pagination").append(domLi);
+				}
 			}
-			
+				
 		},
+		createLi: function(i,curPage){
+			var domA = $(document.createElement("a"));
+			domA.attr("href", "storyList?page="+i);
+			var domLi = $(document.createElement("li"));
+			domLi.append(domA);
+			domA.text(i);
+			if(i==curPage){
+				domLi.addClass("active");
+			}
+			return domLi
+		}
 }
+
+
+		
 
