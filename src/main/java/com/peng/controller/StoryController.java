@@ -75,6 +75,9 @@ public class StoryController {
 		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
 		int rows = 10;
+		if(page<1){
+			page=1;
+		}
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
 		view.addObject("gridBean", gridBean);
         return view;
