@@ -45,7 +45,16 @@ var nichuiniu = {
 			if(curPage<0){
 				curPage=1;
 			}
-			var middlenum = Math.ceil(pagenum/2); 
+			var middlenum = Math.ceil(pagenum/2);
+			/*首页*/
+			domLi= this.createLi("index",curPage);
+			$(".pagination").append(domLi);
+			if(curPage>1){
+				domLi= this.createLi("lastPage",curPage-1);
+				$(".pagination").append(domLi);
+			}
+			
+			/*中间页*/
 			if(curPage<=middlenum||totalPage<pagenum){
 				for(var i = 1;i<=pagenum&&i<=totalPage;i++){
 					domLi= this.createLi(i,curPage);
@@ -64,15 +73,51 @@ var nichuiniu = {
 					$(".pagination").append(domLi);
 				}
 			}
-			
+			/*尾页*/
+			if(curPage<totalPage){
+				domLi= this.createLi("nextPage",curPage+1);
+				$(".pagination").append(domLi);
+			}
+			domLi= this.createLi("end",totalPage);
+			$(".pagination").append(domLi);
 				
 		},
 		createLi: function(i,curPage){
 			var domA = $(document.createElement("a"));
-			domA.attr("href", "storyList?page="+i);
 			var domLi = $(document.createElement("li"));
 			domLi.append(domA);
+			if(i=="index"){
+				domA.text("首页");
+				domA.attr("href", "storyList?page="+1);
+				return domLi
+			}
+			if(i=="lastPage"){
+				domA.text("上一页");
+				if(curPage>0){
+					domA.attr("href", "storyList?page="+curPage);
+				}else{
+					return null;
+				}
+				
+				return domLi
+			}
+			if(i=="nextPage"){
+				domA.text("下一页");
+				if(curPage>0){
+					domA.attr("href", "storyList?page="+curPage);
+				}else{
+					return null;
+				}
+				
+				return domLi
+			}
+			if(i=="end"){
+				domA.text("尾页");
+				domA.attr("href", "storyList?page="+curPage);
+				return domLi
+			}
 			domA.text(i);
+			domA.attr("href", "storyList?page="+i);
 			if(i==curPage){
 				domLi.addClass("active");
 			}

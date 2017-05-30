@@ -79,6 +79,10 @@ public class StoryController {
 			page=1;
 		}
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
+		if(page>gridBean.getTotal()){
+			page=gridBean.getTotal();
+			gridBean = storyService.getStoryList(page, rows, map);
+		}
 		view.addObject("gridBean", gridBean);
         return view;
     }
