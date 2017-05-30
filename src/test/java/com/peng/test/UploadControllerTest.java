@@ -1,9 +1,10 @@
-package com.peng.controller;
+package com.peng.test;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +18,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 
@@ -53,9 +55,9 @@ import org.springframework.web.servlet.ModelAndView;
  * @return  
  */
 @Controller
-public class UploadController {
+public class UploadControllerTest {
 	
-	Logger logger = Logger.getLogger(UploadController.class);
+	Logger logger = Logger.getLogger(UploadControllerTest.class);
 	
 	
 	@RequestMapping("/upload")
@@ -68,20 +70,67 @@ public class UploadController {
     @ResponseBody
     public String uploadFile(HttpServletResponse response, HttpServletRequest request,
             @RequestParam("file") MultipartFile file) {
-		String name = file.getName();
-		File newfile = new File("/opt/");
-
+		File newfile = new File("/opt/test/");
         if (!newfile.exists()) {
             newfile.mkdirs();
         }
-        StringBuffer filePath= new StringBuffer(newfile+name);
-
+        StringBuffer filePath= new StringBuffer("/opt/test/");
+        filePath.append(file.getOriginalFilename());
+        if (!newfile.exists()) {
+            newfile.mkdirs();
+        }
+        
+//        File newfile2 = new File(filePath.toString());  //如果目录下有这个文件了 那就删除
+//        if (newfile2.exists()) {
+//        	newfile2.delete();
+//        }
         try {
 			file.transferTo(new File(filePath.toString()));
+//			return  "ok";
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return  "ok";
+        
+        File dstFile = new File("/opt/test2/");
+        StringBuffer filePath2= new StringBuffer("/opt/test2/");
+        filePath2.append(file.getOriginalFilename());
+        if (!dstFile.exists()) {
+        	dstFile.mkdirs();
+        }
+//        int fileSize = (int) file.length(); //源文件
+        int fileSize = (int) file.getSize(); //源文件
+        InputStream in = null;
+        OutputStream out = null;
+		try {
+			in = new BufferedInputStream(new FileInputStream(filePath.toString()), fileSize);
+			out = new BufferedOutputStream(new FileOutputStream(filePath2.toString()), fileSize);
+			byte[] buffer = new byte[fileSize];
+			int len = 0;
+			while ((len = in.read(buffer)) > 0) {
+				out.write(buffer, 0, len);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (null != in) {
+				try {
+					in.close();
+				} catch (IOException e) {
+				    logger.error(e.getMessage(),e);
+				}
+			}
+			if (null != out) {
+				try {
+					out.close();
+					return  "ok";
+				} catch (IOException e) {
+				    logger.error(e.getMessage(),e);
+				}
+			}
+		}
+		
+        return  "no";
     }
 	
 	/*public String saveUospFile() throws Exception {
