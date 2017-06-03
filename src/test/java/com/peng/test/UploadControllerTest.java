@@ -104,6 +104,7 @@ public class UploadControllerTest {
 		try {
 			in = new BufferedInputStream(new FileInputStream(filePath.toString()), fileSize);
 			out = new BufferedOutputStream(new FileOutputStream(filePath2.toString()), fileSize);
+			//buffer可以设置小一点，用途是每次读取文件的字节大小
 			byte[] buffer = new byte[fileSize];
 			int len = 0;
 			while ((len = in.read(buffer)) > 0) {

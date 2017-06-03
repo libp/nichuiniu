@@ -1,6 +1,5 @@
 package com.peng.dao;
 
-import java.awt.Stroke;
 import java.util.List;
 import java.util.Map;
 
@@ -26,4 +25,6 @@ public interface StoryMapper {
      * 获取所有牛皮
      */
     public List<Story> getStoryList(Map<String,String> map);
+    
+    public int thumbsUp(Map<String,Integer> map);
 }

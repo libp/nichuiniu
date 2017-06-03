@@ -39,11 +39,7 @@
 			</div>
 		</div>
 		<div class="col-md-5 column">
-			<div class="head-login">
-				<a href=""><img src="<%=basePath%>images/weixin.svg" class="img-responsive"></img></a>
-				<a href=""><img src="<%=basePath%>images/weibo.svg" class="img-responsive"></img></a>
-				<p>点击登录</p>
-			</div>
+			<jsp:include page="../includes/logo.jsp"></jsp:include>
 		</div>
 	</div>
 <div class="container">
@@ -67,14 +63,7 @@
 	   		</article> 
 		</main>
 		<aside class="col-md-4 column">
-			<div class="main-right">
-				<h3 class="title">社区</h3>
-				<div class="">
-					<p>QQ群：12345678</p>
-					<p><a href=""><i class="fa fa-weibo"></i> 官方微博</a></p>
-					<p>百度贴吧</p>
-				</div>
-			</div>
+			<jsp:include page="../includes/right1.jsp"></jsp:include>
 		</aside>
 	</div>
 </div>

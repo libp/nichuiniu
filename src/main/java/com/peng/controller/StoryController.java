@@ -1,7 +1,6 @@
 package com.peng.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -22,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -33,10 +31,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSONArray;
 import com.peng.common.GridBean;
 import com.peng.entity.Story;
 import com.peng.service.StoryService;
+
 
 
 
@@ -57,7 +55,7 @@ public class StoryController {
 	
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
-		logger.info("systemt begin run........................");
+		logger.info("request index page........................");
 		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
@@ -70,14 +68,15 @@ public class StoryController {
 	@RequestMapping(value = "/storyList", method = { RequestMethod.GET })
     @ResponseBody
     public ModelAndView mainPage(HttpServletRequest request,
-             @RequestParam(value = "page", required = true) Integer page) {
+             @RequestParam(value = "page", required = false) Integer page) {
 		logger.info("loading article list........................");
 		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
 		int rows = 10;
-		if(page<1){
+		if( page == null || "".equals(page) || page < 1 ){
 			page=1;
 		}
+		
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
 		if(page>gridBean.getTotal()){
 			page=gridBean.getTotal();
@@ -97,6 +96,32 @@ public class StoryController {
 		Story story = storyService.getStoryById(t);
 		view.addObject("story", story);
 		return view;
+	}
+	
+	
+	/**
+	 * 点赞不做权限控制，谁都能点，次数也不限制
+	 * @param request
+	 * @param articleId
+	 * @return
+	 */
+	@RequestMapping("/thumbsUp")
+	@ResponseBody
+	public String thumbsUp(HttpServletRequest request,
+			@RequestParam(value = "articleId",required = true) String articleId,
+			@RequestParam(value = "agreetime",required = true) String agreetime){
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("id", Integer.parseInt(articleId));
+		map.put("agreetime", Integer.parseInt(agreetime)+1);
+		int result = storyService.thumbsUp(map);
+		if(result>0){
+			logger.info("thumbsUp success . articleId="+articleId);
+			return com.alibaba.fastjson.JSONArray.toJSONString(map);
+		}else{
+			logger.info("thumbsUp failure");
+			map.put("agreetime", Integer.parseInt(agreetime));
+			return com.alibaba.fastjson.JSONArray.toJSONString(map);
+		}
 	}
 	
 }

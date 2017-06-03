@@ -7,6 +7,9 @@ html,body {
 	font-family: "Microsoft YaHei";
 	background-clip: padding-box;
 }
+input,button,select,textarea{outline:none;}
+:focus {outline:none;} /*for IE*/
+::-moz-focus-inner {border-color: transparent;} /*for mozilla*/
 a{
 	outline:none;
 	color:#303030;

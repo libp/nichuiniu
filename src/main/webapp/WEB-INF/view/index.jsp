@@ -11,7 +11,7 @@
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
-
+<link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
 <script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>
@@ -38,11 +38,7 @@
 			</div>
 		</div>
 		<div class="col-md-5 column">
-			<div class="head-login">
-				<a href=""><img src="<%=basePath%>images/weixin.svg" class="img-responsive"></img></a>
-				<a href=""><img src="<%=basePath%>images/weibo.svg" class="img-responsive"></img></a>
-				<p>做成腾讯样式的</p><!-- 包括分享 -->
-			</div>
+			<jsp:include page="../includes/logo.jsp"></jsp:include>
 		</div>
 	</div>
 <div class="container">
@@ -57,7 +53,7 @@
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-default btn-lg">
+			       		<button type="button" class="btn btn-warning btn-lg active agree" id="${items.id}" agreetime="${items.agreetime}" title="点赞">
 							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">${items.agreetime}</span>
 						</button>
 					</div>
@@ -77,14 +73,7 @@
 	   		</nav>
 		</main>
 		<aside class="col-md-4 column">
-			<div class="main-right">
-				<h3 class="title">社区</h3>
-				<div class="">
-					<p>QQ群：12345678</p>
-					<p><a href=""><i class="fa fa-weibo"></i> 官方微博</a></p>
-					<p>百度贴吧</p>
-				</div>
-			</div>
+			<jsp:include page="../includes/right1.jsp"></jsp:include>
 		</aside>
 	</div>
 </div>

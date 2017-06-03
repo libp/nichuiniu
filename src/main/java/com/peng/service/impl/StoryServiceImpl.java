@@ -54,5 +54,12 @@ public class StoryServiceImpl implements StoryService{
 		return gridBean;
 	}
 
+	@Override
+	public int thumbsUp(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		int result = storyMapper.thumbsUp(map);
+		return result;
+	}
+
 }
 

@@ -37,6 +37,16 @@
     where 1=1
   </select>
   
+  <update id = "thumbsUp"  parameterType="java.util.Map" >
+  	update tbl_peng_story
+  		<set>
+			<if test="agreetime != null and agreetime != ''">
+				agreetime = #{agreetime,jdbcType=INTEGER},
+			</if>
+		</set> 
+		where id = #{id,jdbcType=INTEGER};
+  </update>
+  
   
   
   

@@ -35,5 +35,12 @@ public interface StoryService {
 	 * @return
 	 */
 	public GridBean getStoryList(int page, int rows,Map<String, String> map);
+	
+	/**
+	 * 点赞
+	 * @param id
+	 * @return
+	 */
+	public int thumbsUp(Map<String, Integer> map);
 }
 
