@@ -34,7 +34,7 @@
 		</div>
 		<div class="col-md-5 column">
 			<div class="head-word">
-				<h2>你吹过的牛皮，这里都记着呢</h2>
+				<h2>你吹过的牛皮，这里都记着呢!</h2>
 			</div>
 		</div>
 		<div class="col-md-5 column">
@@ -53,7 +53,7 @@
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-warning btn-lg active agree" id="${items.id}" agreetime="${items.agreetime}" title="点赞">
+			       		<button type="button" class="btn btn-warning btn-lg active agree" id="${items.id}" agreetime="${items.agreetime}" title="点个赞吧！">
 							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">${items.agreetime}</span>
 						</button>
 					</div>
