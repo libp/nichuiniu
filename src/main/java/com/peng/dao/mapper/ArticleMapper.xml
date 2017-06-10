@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peng.dao.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.peng.entity.Article">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Num" jdbcType="VARCHAR" property="num" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="GetTime" jdbcType="TIMESTAMP" property="gettime" />
+    <result column="Author" jdbcType="VARCHAR" property="author" />
+    <result column="ImgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="Url" jdbcType="VARCHAR" property="url" />
+    <result column="IsUse" jdbcType="INTEGER" property="isuse" />
+    <result column="WebName" jdbcType="VARCHAR" property="webname" />
+    <result column="Tag" jdbcType="VARCHAR" property="tag" />
+    <result column="Catagroery" jdbcType="VARCHAR" property="catagroery" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.peng.entity.Article">
+    <result column="Content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Num, Title, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(GetTime,'%Y年%m月%d日') GetTime, Author, ImgUrl, Url, IsUse, WebName, Tag, Catagroery
+  </sql>
+  <sql id="Blob_Column_List">
+    Content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tbl_peng_article
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_peng_article
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.peng.entity.Article">
+    insert into tbl_peng_article (Id, Num, Title, 
+      CreateTime, GetTime, Author, 
+      ImgUrl, Url, IsUse, 
+      WebName, Tag, Catagroery, 
+      Content)
+    values (#{id,jdbcType=INTEGER}, #{num,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{gettime,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR}, 
+      #{imgurl,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{isuse,jdbcType=INTEGER}, 
+      #{webname,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{catagroery,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.peng.entity.Article">
+    insert into tbl_peng_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="num != null">
+        Num,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="gettime != null">
+        GetTime,
+      </if>
+      <if test="author != null">
+        Author,
+      </if>
+      <if test="imgurl != null">
+        ImgUrl,
+      </if>
+      <if test="url != null">
+        Url,
+      </if>
+      <if test="isuse != null">
+        IsUse,
+      </if>
+      <if test="webname != null">
+        WebName,
+      </if>
+      <if test="tag != null">
+        Tag,
+      </if>
+      <if test="catagroery != null">
+        Catagroery,
+      </if>
+      <if test="content != null">
+        Content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gettime != null">
+        #{gettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="isuse != null">
+        #{isuse,jdbcType=INTEGER},
+      </if>
+      <if test="webname != null">
+        #{webname,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="catagroery != null">
+        #{catagroery,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.peng.entity.Article">
+    update tbl_peng_article
+    <set>
+      <if test="num != null">
+        Num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gettime != null">
+        GetTime = #{gettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        Author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        ImgUrl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        Url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="isuse != null">
+        IsUse = #{isuse,jdbcType=INTEGER},
+      </if>
+      <if test="webname != null">
+        WebName = #{webname,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        Tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="catagroery != null">
+        Catagroery = #{catagroery,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        Content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.peng.entity.Article">
+    update tbl_peng_article
+    set Num = #{num,jdbcType=VARCHAR},
+      Title = #{title,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      GetTime = #{gettime,jdbcType=TIMESTAMP},
+      Author = #{author,jdbcType=VARCHAR},
+      ImgUrl = #{imgurl,jdbcType=VARCHAR},
+      Url = #{url,jdbcType=VARCHAR},
+      IsUse = #{isuse,jdbcType=INTEGER},
+      WebName = #{webname,jdbcType=VARCHAR},
+      Tag = #{tag,jdbcType=VARCHAR},
+      Catagroery = #{catagroery,jdbcType=VARCHAR},
+      Content = #{content,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.peng.entity.Article">
+    update tbl_peng_article
+    set Num = #{num,jdbcType=VARCHAR},
+      Title = #{title,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      GetTime = #{gettime,jdbcType=TIMESTAMP},
+      Author = #{author,jdbcType=VARCHAR},
+      ImgUrl = #{imgurl,jdbcType=VARCHAR},
+      Url = #{url,jdbcType=VARCHAR},
+      IsUse = #{isuse,jdbcType=INTEGER},
+      WebName = #{webname,jdbcType=VARCHAR},
+      Tag = #{tag,jdbcType=VARCHAR},
+      Catagroery = #{catagroery,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getStoryList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+   Id, Title, Author, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(GetTime,'%Y年%m月%d日') GetTime,Url
+    from tbl_peng_article
+    where isuse=0
+  </select>
+  
+  <update id="updateArticltStauts" parameterType="com.peng.entity.Article">
+    update tbl_peng_article
+    set 
+      IsUse = 1
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>
