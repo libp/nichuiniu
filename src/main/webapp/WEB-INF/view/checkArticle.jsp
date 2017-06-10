@@ -50,10 +50,13 @@
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-info btn-lg active agree ok" id="${items.id}">
+			       		<button type="button" class="btn btn-info btn-sm active agree ok" id="${items.id}">
 							<span class="glyphicon glyphicon-ok"></span>
 						</button>
-						<button type="button" class="btn btn-warning btn-lg active agree" id="${items.id}">
+						<button type="button" class="btn btn-danger btn-sm active  delete" id="${items.id}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+						<button type="button" class="btn btn-warning btn-sm active edit" id="${items.id}">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</button>
 					</div>

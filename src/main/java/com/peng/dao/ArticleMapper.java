@@ -27,6 +27,8 @@ public interface ArticleMapper {
      */
     public int updateArticltStauts(Integer id);
     
+    public int updateArticltStauts2(Map<String, Integer> map);
+    
     /**
      * 获取所有文章
      */

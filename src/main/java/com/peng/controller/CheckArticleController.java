@@ -76,7 +76,7 @@ public class CheckArticleController {
 		logger.info("loading no check article list........................");
 		ModelAndView view = new ModelAndView("checkArticle");
 		Map<String, String> map = new HashMap<String, String>();
-		int rows = 10;
+		int rows = 200;
 		if( page == null || "".equals(page) || page < 1 ){
 			page=1;
 		}
@@ -91,7 +91,7 @@ public class CheckArticleController {
     }
 	
 	/**
-	 * 点赞不做权限控制，谁都能点，次数也不限制
+	 * 文章审核通过入库
 	 * @param request
 	 * @param articleId
 	 * @return
@@ -130,8 +130,32 @@ public class CheckArticleController {
 			return com.alibaba.fastjson.JSONArray.toJSONString(map);
 		}else{
 			logger.info("article into default ,article id is "+id);
-			map.put("result","failure");
-			return com.alibaba.fastjson.JSONArray.toJSONString(map);
+			return null;
+		}
+		
+	}
+	
+	/**
+	 * 不符合要求 删除该文章（实际是改变文章在后台的显示状态）
+	 * @param request
+	 * @param articleId
+	 * @return
+	 */
+	@RequestMapping("/deleteStory")
+	@ResponseBody
+	public String delete(HttpServletRequest request,
+			@RequestParam(value = "articleId",required = true) String articleId
+			){
+		int id = Integer.parseInt(articleId);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("Id", id);
+		map.put("IsUse", 2);
+		int update = articleService.updateArticltStauts2(map);
+		if(update>0){
+			logger.info("article has change isuse to 2(not suitable) article id is"+id);
+			return com.alibaba.fastjson.JSONArray.toJSONString("{result=success}");
+		}else{
+			return null;
 		}
 		
 	}

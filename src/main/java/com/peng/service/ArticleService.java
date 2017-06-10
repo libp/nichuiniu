@@ -30,5 +30,7 @@ public interface ArticleService {
 	
 	public int updateArticltStauts(Integer id);
 	
+	public int updateArticltStauts2(Map<String, Integer> map);
+	
 }
 

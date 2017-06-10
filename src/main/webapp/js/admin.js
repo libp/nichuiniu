@@ -121,11 +121,30 @@ $(function(){
 			  data: {articleId:id},
 			  dataType: 'json',
 			  success: function(result) {
-//				  $(_this).children(".badge").text(result.agreetime);
-//				  $(_this).attr("disabled","disabled");
-//				  $(_this).attr("title","已赞");
 				  $(_this).parent().parent().parent().remove();
-				  console.info($(_this));
+				  console.info(result.result);
+			  },
+			  error: function(XMLHttpRequest, textStatus, errorThrown) {
+				  console.info(XMLHttpRequest.status);
+				  console.info(XMLHttpRequest.readyState);
+				  console.info(textStatus);
+              },
+              complete: function(XMLHttpRequest, textStatus) {
+                  this; // 调用本次AJAX请求时传递的options参数
+              }
+			});
+	  });
+	  
+	  $(".delete").click(function(){
+		  var _this = this;
+		  var id = parseInt($(_this).attr("id"));
+		  $.ajax({
+			  type: 'POST',
+			  url: 'deleteStory',
+			  data: {articleId:id},
+			  dataType: 'json',
+			  success: function(result) {
+				  $(_this).parent().parent().parent().remove();
 				  console.info(result.result);
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {

@@ -221,4 +221,16 @@
     where Id = #{id,jdbcType=INTEGER}
   </update>
   
+  <update id="updateArticltStauts2" parameterType="java.util.Map">
+    update tbl_peng_article
+    set 
+    <if test="IsUse != null">
+        IsUse = #{IsUse,jdbcType=INTEGER}
+      </if>
+    where 
+    <if test="Id != null">
+        Id = #{Id,jdbcType=INTEGER}
+      </if>
+  </update>
+  
 </mapper>

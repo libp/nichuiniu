@@ -59,7 +59,12 @@ public class ArticleServiceImpl implements ArticleService{
 		// TODO Auto-generated method stub
 		return articleMapper.updateArticltStauts(id);
 	}
-
+	
+	@Override
+	public int updateArticltStauts2(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return articleMapper.updateArticltStauts2(map);
+	}
 
 }
 
