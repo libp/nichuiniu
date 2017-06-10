@@ -128,11 +128,18 @@ $(function(){
 			  data: {articleId:id,agreetime:agreetime},
 			  dataType: 'json',
 			  success: function(result) {
-				  console.log(agreetime);
 				  $(_this).children(".badge").text(result.agreetime);
 				  $(_this).attr("disabled","disabled");
 				  $(_this).attr("title","已赞");
-			  }
+			  },
+			  error: function(XMLHttpRequest, textStatus, errorThrown) {
+				  console.info(XMLHttpRequest.status);
+				  console.info(XMLHttpRequest.readyState);
+				  console.info(textStatus);
+              },
+              complete: function(XMLHttpRequest, textStatus) {
+                  this; // 调用本次AJAX请求时传递的options参数
+              }
 			});
 	  });
 	});

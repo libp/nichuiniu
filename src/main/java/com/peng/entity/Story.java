@@ -1,8 +1,12 @@
 package com.peng.entity;
 
-import java.util.Date;
 
 
+/**
+ * story的定义为已经审核过的属于牛皮范畴的
+ * @author Peng
+ *
+ */
 public class Story {
     private Integer id;
     
@@ -31,8 +35,26 @@ public class Story {
     private Integer source;
 
     private String url;
+    
+    private String Num;
 
-    public String getTitle() {
+    public Integer getIsShow() {
+		return IsShow;
+	}
+
+	public void setIsShow(Integer isShow) {
+		IsShow = isShow;
+	}
+
+	public String getNum() {
+		return Num;
+	}
+
+	public void setNum(String num) {
+		Num = num;
+	}
+
+	public String getTitle() {
         return title;
     }
 

@@ -92,8 +92,9 @@ public class StoryController {
 			@PathVariable String articleId,HttpServletResponse response) {
 		logger.info("loading article content........................");
 		ModelAndView view = new ModelAndView("article");
-		int t = Integer.parseInt(articleId);
-		Story story = storyService.getStoryById(t);
+//		int t = Integer.parseInt(articleId);
+//		Story story = storyService.getStoryById(t);
+		Story story = storyService.getStoryByNum(articleId);
 		view.addObject("story", story);
 		return view;
 	}

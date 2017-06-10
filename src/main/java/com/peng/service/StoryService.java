@@ -28,6 +28,13 @@ public interface StoryService {
 	public Story getStoryById(int id);
 	
 	/**
+	 * 根据Num编号查询牛皮
+	 * @param id
+	 * @return
+	 */
+	public Story getStoryByNum(String Num);
+	
+	/**
 	 * 根据分页批量查询牛皮
 	 * @param page
 	 * @param rows
@@ -42,5 +49,13 @@ public interface StoryService {
 	 * @return
 	 */
 	public int thumbsUp(Map<String, Integer> map);
+	
+	/**
+	 * 插入新的牛皮
+	 * @param story
+	 * @return
+	 */
+	public int insertSelective(Story story);
+	
 }
 

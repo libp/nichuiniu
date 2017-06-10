@@ -3,6 +3,7 @@
 <mapper namespace="com.peng.dao.StoryMapper">
   <resultMap id="BaseResultMap" type="com.peng.entity.Story">
     <id column="Id" jdbcType="INTEGER" property="id" />
+    <id column="Num" jdbcType="VARCHAR" property="num" />
     <result column="Title" jdbcType="VARCHAR" property="title" />
     <result column="Content" jdbcType="LONGVARCHAR" property="content" />
     <result column="Author" jdbcType="VARCHAR" property="author" />
@@ -18,7 +19,7 @@
     <result column="Url" jdbcType="VARCHAR" property="url" />
   </resultMap>
   <sql id="Base_Column_List">
-    Id, Title,Content, Author, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(RealizeTime,'%Y年%m月%d日') RealizeTime, OriginPlace, ClickTime, AgreeTime, 
+    Id, Num,Title,Content, Author, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(RealizeTime,'%Y年%m月%d日') RealizeTime, OriginPlace, ClickTime, AgreeTime, 
     IsShow, StoryType, StroyTag, Source, Url
   </sql>
   
@@ -27,6 +28,13 @@
     <include refid="Base_Column_List" />
     from tbl_peng_story
     where Id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getStoryByNum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_peng_story
+    where Num = #{num,jdbcType=VARCHAR}
   </select>
   
   <select id="getStoryList" parameterType="java.util.Map" resultMap="BaseResultMap">
@@ -72,6 +80,9 @@
       <if test="id != null">
         Id,
       </if>
+      <if test="num != null">
+        Num,
+      </if>
       <if test="title != null">
         Title,
       </if>
@@ -115,6 +126,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=VARCHAR},
       </if>
       <if test="title != null">
         #{title,jdbcType=LONGVARCHAR},

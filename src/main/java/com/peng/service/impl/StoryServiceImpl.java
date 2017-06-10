@@ -61,5 +61,19 @@ public class StoryServiceImpl implements StoryService{
 		return result;
 	}
 
+	@Override
+	public int insertSelective(Story story) {
+		// TODO Auto-generated method stub
+		int result = storyMapper.insertSelective(story);
+		return result;
+	}
+
+	@Override
+	public Story getStoryByNum(String Num) {
+		// TODO Auto-generated method stub
+		Story story = storyMapper.getStoryByNum(Num);
+		return story;
+	}
+
 }
 
