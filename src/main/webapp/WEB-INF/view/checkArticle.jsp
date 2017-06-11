@@ -13,9 +13,11 @@
 %>
 <link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
+<link rel="stylesheet" href="<%=basePath%>css/common/summernote.css" />
 <link rel="stylesheet" href="<%=basePath%>css/admin.css" />
 <script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>
 <script src="<%=basePath%>js/common/bootstrap.js"></script>
+<script src="<%=basePath%>js/common/summernote.js"></script>
 <script src="<%=basePath%>js/admin.js"></script>
 <script>
 	jQuery(function($) {
@@ -74,6 +76,8 @@
 	   			<ul class="pagination" curPage="${gridBean.page}" totalPage="${gridBean.total}">
 				</ul>
 	   		</nav>
+	   		
+	   		<div id="summernote">Hello Summernote</div>
 		</main>
 	</div>
 </div>

@@ -157,4 +157,5 @@ $(function(){
               }
 			});
 	  });
+	  $('#summernote').summernote();
 	});
