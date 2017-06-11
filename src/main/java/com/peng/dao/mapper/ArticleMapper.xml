@@ -233,4 +233,11 @@
       </if>
   </update>
   
+  <select id="getWebNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select 
+    webName
+    from tbl_peng_article
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  
 </mapper>

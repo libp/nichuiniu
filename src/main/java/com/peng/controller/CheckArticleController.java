@@ -76,7 +76,7 @@ public class CheckArticleController {
 		logger.info("loading no check article list........................");
 		ModelAndView view = new ModelAndView("checkArticle");
 		Map<String, String> map = new HashMap<String, String>();
-		int rows = 10;
+		int rows = 20;
 		if( page == null || "".equals(page) || page < 1 ){
 			page=1;
 		}
@@ -152,12 +152,76 @@ public class CheckArticleController {
 		map.put("IsUse", 2);
 		int update = articleService.updateArticltStauts2(map);
 		if(update>0){
-			logger.info("article has change isuse to 2(not suitable) article id is"+id);
+			logger.info("article has change isuse to 2(not suitable) article id is "+id);
 			return com.alibaba.fastjson.JSONArray.toJSONString("{result=success}");
 		}else{
 			return null;
 		}
 		
+	}
+	
+	/**
+	 * 不符合要求 删除该文章（实际是改变文章在后台的显示状态）
+	 * @param request
+	 * @param articleId
+	 * @return
+	 */
+	@RequestMapping("/editStory")
+	@ResponseBody
+	public String editStory(HttpServletRequest request,
+			@RequestParam(value = "articleId",required = true) String articleId
+			){
+		int id = Integer.parseInt(articleId);
+		Article article = articleService.selectByPrimaryKey(id);
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("author", article.getAuthor());
+		map.put("content", article.getContent());
+		map.put("createtime", article.getCreatetime());
+		map.put("title", article.getTitle());
+		logger.info("edit article id is "+id);
+		return com.alibaba.fastjson.JSONArray.toJSONString(map);
+	}
+	
+	/**
+	 * 报错修改，并发布文章
+	 * @param request
+	 * @param articleId
+	 * @return
+	 */
+	@RequestMapping("/saveEdit")
+	@ResponseBody
+	public String saveEidt(HttpServletRequest request,@RequestParam(value = "articleId",required = true) String articleId,
+			@RequestParam(value = "title",required = true) String title,
+			@RequestParam(value = "author",required = true) String author,@RequestParam(value = "createtime",required = true) String createtime
+			,@RequestParam(value = "content",required = true) String content
+			){
+		Map<String, String> map = new HashMap<String, String>();
+		int id = Integer.parseInt(articleId);
+		int update = articleService.updateArticltStauts(id);
+		String webname = articleService.getWebNameById(id);
+		if(update>0) {
+			logger.info("article has update isuse to 1 article id is"+id);
+		}
+		
+		Story story = new Story();
+		String currtentTime = String.valueOf(System.currentTimeMillis());
+		story.setTitle(title);
+		story.setContent(content);
+		story.setNum(currtentTime);
+		story.setAuthor(author);
+		story.setCreatetime(changeTimeFormate(createtime));
+		story.setOriginplace(webname);
+		story.setSource(0);  //0表示爬虫采集
+		story.setUrl("article/"+currtentTime);
+		int result = storyService.insertSelective(story);
+		if(result>0){
+			logger.info("article has inserto into story table ,article id is "+id);
+			map.put("result","success");
+			return com.alibaba.fastjson.JSONArray.toJSONString(map);
+		}else{
+			logger.info("article into default ,article id is "+id);
+			return null;
+		}
 	}
 	
 	public String changeTimeFormate(String time){

@@ -114,7 +114,7 @@ var admin = {
 $(function(){
 	  $(".ok").click(function(){
 		  var _this = this;
-		  var id = parseInt($(_this).attr("id"));
+		  var id = parseInt($(_this).attr("num"));
 		  $.ajax({
 			  type: 'POST',
 			  url: 'rightStory',
@@ -137,7 +137,7 @@ $(function(){
 	  
 	  $(".delete").click(function(){
 		  var _this = this;
-		  var id = parseInt($(_this).attr("id"));
+		  var id = parseInt($(_this).attr("num"));
 		  $.ajax({
 			  type: 'POST',
 			  url: 'deleteStory',
@@ -157,5 +157,62 @@ $(function(){
               }
 			});
 	  });
-	  $('#summernote').summernote();
+	  $(".edit").click(function(){
+		  var _this = this;
+		  var id = parseInt($(_this).attr("num"));
+		  $.ajax({
+			  type: 'POST',
+			  url: 'editStory',
+			  data: {articleId:id},
+			  dataType: 'json',
+			  success: function(result) {
+				  $('#modalID').text(id);
+				  $('#myModalLabel').val(result.title);
+				  $('#myModalLabel-author').val(result.author);
+				  $('#myModalLabel-createtime').val(result.createtime);
+				  $('#summernote').html(result.content);
+				  
+				  //加载富文本编辑器
+				  $('#summernote').summernote();
+			  },
+			  error: function(XMLHttpRequest, textStatus, errorThrown) {
+				  console.info(XMLHttpRequest.status);
+				  console.info(XMLHttpRequest.readyState);
+				  console.info(textStatus);
+              },
+              complete: function(XMLHttpRequest, textStatus) {
+                  this; // 调用本次AJAX请求时传递的options参数
+              }
+			});
+	  });
+	  $(".save").click(function(){
+		  var _this = this;
+		  var id = $('#modalID').text();
+		  var title = $('#myModalLabel').val();
+		  var author = $('#myModalLabel-author').val();
+		  var createtime = $('#myModalLabel-createtime').val();
+		  var content = $('#summernote').html();
+		  $.ajax({
+			  type: 'POST',
+			  url: 'saveEdit',
+			  data: {"articleId":id,"title":title,"author":author,"createtime":createtime,"content":content},
+			  dataType: 'json',
+			  success: function(result) {
+				  $(".close").click();
+				  $("#"+id).remove();
+				  console.info(result.result);
+			  },
+			  error: function(XMLHttpRequest, textStatus, errorThrown) {
+				  console.info(XMLHttpRequest.status);
+				  console.info(XMLHttpRequest.readyState);
+				  console.info(textStatus);
+              },
+              complete: function(XMLHttpRequest, textStatus) {
+                  this; // 调用本次AJAX请求时传递的options参数
+              }
+			});
+	  });
+	  
+	  
+	  
 	});

@@ -34,4 +34,6 @@ public interface ArticleMapper {
      */
     public List<Article> getStoryList(Map<String,String> map);
     
+    public String getWebNameById(Integer id);
+    
 }

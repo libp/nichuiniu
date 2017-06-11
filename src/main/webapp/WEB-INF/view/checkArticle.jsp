@@ -13,7 +13,7 @@
 %>
 <link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
-<link rel="stylesheet" href="<%=basePath%>css/admin.css" />
+<link rel="stylesheet" href="<%=basePath%>css/index.css" />
 <script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>
 <script src="<%=basePath%>js/common/bootstrap.js"></script>
 <script src="<%=basePath%>js/admin.js"></script>
@@ -47,7 +47,7 @@
 	<div class="row clearfix">
 		<main class="col-md-8 column" id="content">
 			<c:forEach items="${gridBean.rows}" var="items">
-			<article class="chuiniu">
+			<article class="chuiniu" id="${items.id}">
 				<div class="chuiniu-1 clearfix">
 		       		<div class="chuiniu-1-1">
 		       			<p>
@@ -55,14 +55,14 @@
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-info btn-sm active agree ok" id="${items.id}">
+			       		<button type="button" class="btn btn-info btn-sm active agree ok" num="${items.id}">
 							<span class="glyphicon glyphicon-ok"></span>
 						</button>
-						<button type="button" class="btn btn-danger btn-sm active  delete" id="${items.id}">
+						<button type="button" class="btn btn-danger btn-sm active  delete" num="${items.id}">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>
-						<button type="button" class="btn btn-warning btn-sm active edit" id="${items.id}">
-							<span class="glyphicon glyphicon-pencil"></span>
+						<button type="button" class="btn btn-warning btn-sm active edit" num="${items.id}" data-toggle="modal" data-target="#modal-container-598106">
+								<span class="glyphicon glyphicon-pencil"></span>
 						</button>
 					</div>
 		       	</div>
@@ -80,7 +80,37 @@
 				</ul>
 	   		</nav>
 	   		
-	   		<div id="summernote">Hello Summernote</div>
+			<!-- 遮罩窗体 -->
+			<div class="modal fade" id="modal-container-598106" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 900px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<p id="modalID" style="display:none"></p>
+							<div class="input-group input-group-lg modal-input-margin">
+					            <span class="input-group-addon">标题</span>
+					            <input type="text" class="form-control" placeholder="文章标题" id="myModalLabel" name="title">
+					        </div>
+					        <div class="input-group input-group-lg modal-input-margin">
+					            <span class="input-group-addon">作者</span>
+					            <input type="text" class="form-control" placeholder="文章作者" id="myModalLabel-author" name="author">
+					        </div>
+					        <div class="input-group input-group-lg modal-input-margin">
+					            <span class="input-group-addon">时间</span>
+					            <input type="text" class="form-control" placeholder="文章发布时间" id="myModalLabel-createtime" name="createtime">
+					        </div>
+						</div>
+						<div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary save">保存</button>
+						</div>
+						<div class="modal-body">
+							<div id="summernote"></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
 		</main>
 	</div>
 </div>

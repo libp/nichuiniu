@@ -11,7 +11,7 @@
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
-
+<link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
 <script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>

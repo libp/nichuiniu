@@ -32,5 +32,7 @@ public interface ArticleService {
 	
 	public int updateArticltStauts2(Map<String, Integer> map);
 	
+	public String getWebNameById(Integer id);
+	
 }
 

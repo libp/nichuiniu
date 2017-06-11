@@ -66,5 +66,12 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleMapper.updateArticltStauts2(map);
 	}
 
+
+	@Override
+	public String getWebNameById(Integer id) {
+		// TODO Auto-generated method stub
+		return articleMapper.getWebNameById(id);
+	}
+
 }
 
