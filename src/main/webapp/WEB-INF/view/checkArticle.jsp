@@ -13,12 +13,15 @@
 %>
 <link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
-<link rel="stylesheet" href="<%=basePath%>css/common/summernote.css" />
 <link rel="stylesheet" href="<%=basePath%>css/admin.css" />
 <script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>
 <script src="<%=basePath%>js/common/bootstrap.js"></script>
-<script src="<%=basePath%>js/common/summernote.js"></script>
 <script src="<%=basePath%>js/admin.js"></script>
+
+<!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+
 <script>
 	jQuery(function($) {
 		admin.init('<%=basePath%>');

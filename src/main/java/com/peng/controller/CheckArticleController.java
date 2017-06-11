@@ -76,7 +76,7 @@ public class CheckArticleController {
 		logger.info("loading no check article list........................");
 		ModelAndView view = new ModelAndView("checkArticle");
 		Map<String, String> map = new HashMap<String, String>();
-		int rows = 200;
+		int rows = 10;
 		if( page == null || "".equals(page) || page < 1 ){
 			page=1;
 		}
