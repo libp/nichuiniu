@@ -3,8 +3,10 @@ package com.peng.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.peng.entity.Story;
+import org.springframework.stereotype.Repository;
 
+import com.peng.entity.Story;
+@Repository
 public interface StoryMapper {
     public int deleteByPrimaryKey(Integer id);
 

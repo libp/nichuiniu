@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -22,7 +22,7 @@ import com.peng.service.ArticleService;
  * @return  
  */
 
-@Component
+@Service
 public class ArticleServiceImpl implements ArticleService{
 	
 	@Resource

@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -21,8 +22,7 @@ import com.peng.service.StoryService;
  * @version 1.0 
  * @return  
  */
-
-@Component
+@Service
 public class StoryServiceImpl implements StoryService{
 	
 	@Resource

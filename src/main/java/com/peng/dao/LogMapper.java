@@ -1,7 +1,9 @@
 package com.peng.dao;
 
-import com.peng.entity.Log;
+import org.springframework.stereotype.Repository;
 
+import com.peng.entity.Log;
+@Repository
 public interface LogMapper {
     int deleteByPrimaryKey(Integer id);
 

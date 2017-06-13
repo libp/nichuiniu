@@ -151,9 +151,11 @@ public class CheckArticleController {
 		map.put("Id", id);
 		map.put("IsUse", 2);
 		int update = articleService.updateArticltStauts2(map);
+		 
 		if(update>0){
+			String rs = "{\'result\':\'success\'}";
 			logger.info("article has change isuse to 2(not suitable) article id is "+id);
-			return com.alibaba.fastjson.JSONArray.toJSONString("{result=success}");
+			return com.alibaba.fastjson.JSONArray.toJSONString(rs);
 		}else{
 			return null;
 		}

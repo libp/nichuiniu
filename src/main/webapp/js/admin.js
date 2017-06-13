@@ -145,7 +145,7 @@ $(function(){
 			  dataType: 'json',
 			  success: function(result) {
 				  $(_this).parent().parent().parent().remove();
-				  console.info(result.result);
+				  console.info("delete success");
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
 				  console.info(XMLHttpRequest.status);

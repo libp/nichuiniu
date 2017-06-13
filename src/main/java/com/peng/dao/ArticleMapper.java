@@ -3,8 +3,11 @@ package com.peng.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.peng.entity.Article;
 
+@Repository
 public interface ArticleMapper {
     int deleteByPrimaryKey(Integer id);
 
