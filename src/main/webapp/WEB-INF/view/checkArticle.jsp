@@ -12,10 +12,10 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
 <link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="<%=basePath%>css/common/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
-<script src="<%=basePath%>js/common/jquery-3.1.0.min.js"></script>
-<script src="<%=basePath%>js/common/bootstrap.js"></script>
+<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="<%=basePath%>js/admin.js"></script>
 
 <!-- include summernote css/js-->

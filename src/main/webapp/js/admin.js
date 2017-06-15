@@ -200,6 +200,7 @@ $(function(){
 			  success: function(result) {
 				  $(".close").click();
 				  $("#"+id).remove();
+				  $('#summernote').html("");
 				  console.info(result.result);
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
