@@ -27,7 +27,7 @@
     select 
     <include refid="Base_Column_List" />
     from tbl_peng_story
-    where Id = #{id,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER} 
   </select>
   
   <select id="getStoryByNum" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -42,7 +42,7 @@
    Id, Title, Author, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(RealizeTime,'%Y年%m月%d日') RealizeTime, OriginPlace, ClickTime, AgreeTime, 
     IsShow, StoryType, StroyTag, Source, Url
     from tbl_peng_story
-    where 1=1
+    where IsShow=1 ORDER BY CreateTime DESC;
   </select>
   
   <update id = "thumbsUp"  parameterType="java.util.Map" >
