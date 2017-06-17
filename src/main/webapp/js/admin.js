@@ -200,7 +200,8 @@ $(function(){
 			  success: function(result) {
 				  $(".close").click();
 				  $("#"+id).remove();
-				  $('#summernote').html("");
+				  $('#summernote').summernote('reset');
+				  $('#summernote').summernote('destroy');
 				  console.info(result.result);
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -213,7 +214,14 @@ $(function(){
               }
 			});
 	  });
-	  
+	  $("#cloesEdit_btn").click(function(){
+		  $('#summernote').summernote('reset');
+		  $('#summernote').summernote('destroy');
+	  });
+	  $("#cloesEdit_x").click(function(){
+		  $('#summernote').summernote('reset');
+		  $('#summernote').summernote('destroy');
+	  });
 	  
 	  
 	});

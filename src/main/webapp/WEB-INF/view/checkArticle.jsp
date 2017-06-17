@@ -85,7 +85,7 @@
 				<div class="modal-dialog" style="width: 900px;">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="cloesEdit_x">×</button>
 							<p id="modalID" style="display:none"></p>
 							<div class="input-group input-group-lg modal-input-margin">
 					            <span class="input-group-addon">标题</span>
@@ -101,7 +101,7 @@
 					        </div>
 						</div>
 						<div class="modal-footer">
-							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary save">保存</button>
+							 <button type="button" class="btn btn-default" data-dismiss="modal" id="cloesEdit_btn">关闭</button> <button type="button" class="btn btn-primary save">保存</button>
 						</div>
 						<div class="modal-body">
 							<div id="summernote"></div>
