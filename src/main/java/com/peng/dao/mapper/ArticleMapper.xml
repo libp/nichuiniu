@@ -211,7 +211,7 @@
     select 
    Id, Title, Author, DATE_FORMAT(CreateTime,'%Y年%m月%d日') CreateTime, DATE_FORMAT(GetTime,'%Y年%m月%d日') GetTime,Url
     from tbl_peng_article
-    where isuse=0 ORDER BY CreateTime DESC;
+    where isuse=0 ORDER BY CreateTime DESC
   </select>
   
   <update id="updateArticltStauts" parameterType="com.peng.entity.Article">
