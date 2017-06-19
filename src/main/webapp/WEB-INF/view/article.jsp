@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
 <meta name="description" content="你吹牛、吹牛，你吹过的牛皮" />
+<!-- TODO 增加文章标题meta属性 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
@@ -23,7 +24,7 @@
 	});
 </script>
 
-<title>你吹牛</title>
+<title>${story.title}_你吹牛</title>
 </head>
 <body>
 <body>
@@ -57,6 +58,8 @@
 				<section class="chuiniu-content">
 					${story.content}
 				</section>
+				<footer class="chuiniu-share">
+				</footer>
 				<footer class="chuiniu-footer">
 					你吹过的牛皮，这里都记着呢
 				</footer>

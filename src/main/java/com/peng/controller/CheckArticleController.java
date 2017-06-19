@@ -76,7 +76,7 @@ public class CheckArticleController {
 		logger.info("loading no check article list........................");
 		ModelAndView view = new ModelAndView("checkArticle");
 		Map<String, String> map = new HashMap<String, String>();
-		int rows = 20;
+		int rows = 50;
 		if( page == null || "".equals(page) || page < 1 ){
 			page=1;
 		}
@@ -185,7 +185,7 @@ public class CheckArticleController {
 	}
 	
 	/**
-	 * 报错修改，并发布文章
+	 * 保存修改，并发布文章
 	 * @param request
 	 * @param articleId
 	 * @return
@@ -211,6 +211,7 @@ public class CheckArticleController {
 		story.setContent(content);
 		story.setNum(currtentTime);
 		story.setAuthor(author);
+		//TODO  时间精细到分秒，方便排序
 		story.setCreatetime(changeTimeFormate(createtime));
 		story.setOriginplace(webname);
 		story.setSource(0);  //0表示爬虫采集
