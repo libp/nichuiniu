@@ -18,3 +18,6 @@
 					<p>本站部分内容采自互联网，所有侵权，请联系网站管理员（924701358@qq.com）。本站将在收到邮件48小时内删除侵权文章！</p>
 				</div>
 			</div>
+			<div class="main-right" style="margin-top:25px;">
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1262459281'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1262459281%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+			</div>

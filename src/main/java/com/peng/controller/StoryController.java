@@ -59,7 +59,7 @@ public class StoryController {
 		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
-		int rows = 25;
+		int rows = 30;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
 		view.addObject("gridBean", gridBean);
 		return view;
