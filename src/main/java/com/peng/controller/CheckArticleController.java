@@ -163,7 +163,7 @@ public class CheckArticleController {
 	}
 	
 	/**
-	 * 不符合要求 删除该文章（实际是改变文章在后台的显示状态）
+	 * 编辑文章
 	 * @param request
 	 * @param articleId
 	 * @return

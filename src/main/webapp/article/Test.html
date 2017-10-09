@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<body>
+
+
+
+<script>
+$(function(){ 
+	$("#ag").click(function(){
+		var i = $("#num").text();
+		$("#num").text(parseInt(i)+1);
+		console.log("this is "+i+" click")
+	})
+}); 
+</script>
+<p id="num">1</p>
+<button type="button"  id="ag" title="点赞">
+							xxx
+						</button>
+</body>
+</html>
+
+<!-- 通过chrome控制台控制鼠标点击，每个800毫秒点击一次
+setInterval(function () {$('#ag').click(); },800); -->

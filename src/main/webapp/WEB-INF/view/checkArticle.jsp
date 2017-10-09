@@ -112,6 +112,9 @@
 			</div>
 			
 		</main>
+		<aside class="col-md-4 column">
+			<jsp:include page="../includes/right2.jsp"></jsp:include>
+		</aside>
 	</div>
 </div>
 
