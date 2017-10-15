@@ -125,5 +125,22 @@ public class StoryController {
 		}
 	}
 	
+	/**
+	 * 加载新的内容返回json数据
+	 * @param request
+	 * @param morenum
+	 * @return
+	 */
+	@RequestMapping(value = "/getMoreCont", method = { RequestMethod.GET })
+    @ResponseBody
+    public String getMore(HttpServletRequest request,
+             @RequestParam(value = "morenum", required = true) Integer morenum) {
+		logger.info("get more article array........................");
+		Map<String, String> map = new HashMap<String, String>();
+		int rows = 10;
+		GridBean gridBean = storyService.getStoryList(morenum, rows, map);
+		return com.alibaba.fastjson.JSONArray.toJSONString(gridBean);
+    }
+	
 }
 

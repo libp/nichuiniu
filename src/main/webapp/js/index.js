@@ -142,8 +142,34 @@ $(function(){
               }
 			});
 	  });
-	  $(".more").click(function(){
-		  
+	  //请求更多的文章插入首页中
+	  $(".getmore").click(function(){
+		  $.ajax({
+			  type: 'GET',
+			  url: 'getMoreCont',
+			  data: {morenum:2},
+			  dataType: 'json',
+			  success: function(result) {
+				  xx = createArticleDom(result);
+				  $("#content").append("");
+				  console.log("ok")
+			  },
+			  error: function(XMLHttpRequest, textStatus, errorThrown) {
+				  console.info(XMLHttpRequest.status);
+				  console.info(XMLHttpRequest.readyState);
+				  console.info(textStatus);
+              },
+              complete: function(XMLHttpRequest, textStatus) {
+                  this; // 调用本次AJAX请求时传递的options参数
+              }
+			});
 	  });
 	  
 	});
+
+function createArticleDom(result){
+	for (con in result.rows){
+		console.log(result.rows[con].author);
+	}
+	
+}

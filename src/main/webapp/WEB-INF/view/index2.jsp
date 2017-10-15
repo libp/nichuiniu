@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
 <script src="http://lib.baomitu.com/jquery/3.1.0/jquery.min.js"></script>
 <script src="http://lib.baomitu.com/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
 <script src="<%=basePath%>js/index.js"></script>
 <script>
 	jQuery(function($) {
@@ -55,24 +56,24 @@
 			<article class="flag">
 				<div class="flag-body clearfix">
 		       		<div class="flag-1">
-		       			<p class="flag-date">2017/10/15</p>
+		       			<p class="flag-date">${items.createtime}</p>
 					</div>
 		       		<div class="flag-2">
 		       			<div class="flag-round"><b></b></div>
 					</div>
 					<div class="flag-3">
-						<a target="_blank" class="flag-a-pic" href="#">
-							<img alt="文章标题" title="张三丰" src="<%=basePath%>images/picture/nichuiniustyle.png" class="flag-pic";>
+						<a target="_blank" class="flag-a-pic" href="${items.url}">
+							<img alt="${items.title}" title="${items.author}" src="<%=basePath%>images/picture/nichuiniustyle.png" class="flag-pic";>
 						</a>
 					</div>
 					<div class="flag-4">
-						<a target="_blank" class="flag-a-txt clearfix" href="#">
-							港珠澳大桥海底隧道铺装路面 年底具备通车条件
+						<a target="_blank" class="flag-a-txt clearfix" href="${items.url}">
+							${items.title}
 						</a>
 						<div class="flag-data">
 							<span class="flag-span">100阅读&nbsp;⋅</span>
 							<span class="flag-span">1评论&nbsp;⋅</span>
-							<span class="flag-span">100点赞</span>
+							<span class="flag-span">${items.agreetime}点赞</span>
 						</div>
 					</div>
 		       	</div>
