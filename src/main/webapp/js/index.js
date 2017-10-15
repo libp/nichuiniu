@@ -142,4 +142,8 @@ $(function(){
               }
 			});
 	  });
+	  $(".more").click(function(){
+		  
+	  });
+	  
 	});

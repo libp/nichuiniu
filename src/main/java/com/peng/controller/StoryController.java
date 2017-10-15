@@ -56,10 +56,10 @@ public class StoryController {
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
 		logger.info("request index page........................");
-		ModelAndView view = new ModelAndView("index");
+		ModelAndView view = new ModelAndView("index2");
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
-		int rows = 30;
+		int rows = 10;
 		GridBean gridBean = storyService.getStoryList(page, rows, map);
 		view.addObject("gridBean", gridBean);
 		return view;

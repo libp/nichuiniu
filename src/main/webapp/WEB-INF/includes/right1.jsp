@@ -7,7 +7,6 @@
 				<div class="">
 					<p>QQ群：553013338</p>
 					<%-- <img alt="QQ群" src="<%=basePath%>images/553013338.png"> --%>
-					<p><a href="http://weibo.com/p/1005056262804779/home?from=page_100505&mod=TAB#place" target="_blank"><i class="fa fa-weibo"></i> 官方微博</a></p>
 					<p>微信交流</p>
 					<img alt="微信图片" src="<%=basePath%>images/weixin2code.png">
 				</div>
@@ -19,5 +18,5 @@
 				</div>
 			</div>
 			<div class="main-right" style="margin-top:25px;">
-			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1262459281'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1262459281%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+			baiduzhishu
 			</div>
