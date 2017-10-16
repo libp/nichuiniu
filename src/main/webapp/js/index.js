@@ -150,9 +150,8 @@ $(function(){
 			  data: {morenum:2},
 			  dataType: 'json',
 			  success: function(result) {
-				  xx = createArticleDom(result);
-				  $("#content").append("");
-				  console.log("ok")
+				  artArray = createArticleDom(result);
+				  $(".flag:last").after(artArray)
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
 				  console.info(XMLHttpRequest.status);
@@ -168,8 +167,17 @@ $(function(){
 	});
 
 function createArticleDom(result){
+	var artArray = [];
 	for (con in result.rows){
-		console.log(result.rows[con].author);
+		var cont = "<article class=\"flag\"><div class=\"flag-body clearfix\"><div class=\"flag-1\"><p class=\"flag-date\">"
+			+result.rows[con].createtime+"</p></div><div class=\"flag-2\"><div class=\"flag-round\"><b></b></div></div>"
+			+"<div class=\"flag-3\"><a target=\"_blank\" class=\"flag-a-pic\" href=\""+result.rows[con].url
+			+"\"><img alt=\""+result.rows[con].title+"\" title=\""+result.rows[con].author+"}\" src=\"<%=basePath%>images/picture/nichuiniustyle.png\""
+			+" class=\"flag-pic\";></a></div><div class=\"flag-4\"><a target=\"_blank\" class=\"flag-a-txt clearfix\" href=\""
+			+result.rows[con].url+"\">"+result.rows[con].title+"</a><div class=\"flag-data\"><span class=\"flag-span\">100阅读&nbsp;⋅</span><span class=\"flag-span\">1评论&nbsp;⋅</span><span class=\"flag-span\">"
+			+result.rows[con].agree+"点赞</span></div></div></div></article>";
+		artArray.push(cont);
 	}
+	return artArray;
 	
 }
