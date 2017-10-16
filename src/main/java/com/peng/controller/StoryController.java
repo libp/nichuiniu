@@ -56,7 +56,7 @@ public class StoryController {
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response) {
 		logger.info("request index page........................");
-		ModelAndView view = new ModelAndView("index2");
+		ModelAndView view = new ModelAndView("index");
 		Map<String, String> map = new HashMap<String, String>();
 		int page = 1;
 		int rows = 10;

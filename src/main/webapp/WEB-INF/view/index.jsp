@@ -44,40 +44,55 @@
 <div class="container">
 	<div class="row clearfix">
 		<main class="col-md-8 column" id="content">
+			<div class="changeView">
+				<span class="changeView-title">浏览角度：</span>
+				<span class="changeView-detail changeView-detail-active">日</span>
+				<span class="changeView-detail">周</span>
+				<span class="changeView-detail">月</span>
+				<span class="changeView-detail">点赞数</span>
+			</div>
 			<c:forEach items="${gridBean.rows}" var="items">
-			<article class="chuiniu">
-				<div class="chuiniu-1 clearfix">
-		       		<div class="chuiniu-1-1">
-		       			<p>
-							<a href="${items.url}">${items.title}</a>
-						</p>
-		       		</div>
-		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-warning btn-lg active agree" id="${items.id}" agreetime="${items.agreetime}" title="点个赞吧！">
-							<span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">${items.agreetime}</span>
-						</button>
+			<article class="flag">
+				<div class="flag-body clearfix">
+		       		<div class="flag-1">
+		       			<p class="flag-date">${items.createtime}</p>
+					</div>
+		       		<div class="flag-2">
+		       			<div class="flag-round"><b></b></div>
+					</div>
+					<div class="flag-3">
+						<a target="_blank" class="flag-a-pic" href="${items.url}">
+							<img alt="${items.title}" title="${items.author}" src="<%=basePath%>images/picture/nichuiniustyle.png" class="flag-pic";>
+						</a>
+					</div>
+					<div class="flag-4">
+						<a target="_blank" class="flag-a-txt clearfix" href="${items.url}">
+							${items.title}
+						</a>
+						<div class="flag-data">
+							<span class="flag-span">100阅读&nbsp;⋅</span>
+							<span class="flag-span">1评论&nbsp;⋅</span>
+							<span class="flag-span">${items.agreetime}点赞</span>
+						</div>
 					</div>
 		       	</div>
-		       	<div class="chuiniu-2">
-		       		<div class="chuiniu-2-2">
-		       			<ul  class="list-inline">
-						<li>${items.author}</li><li>${items.createtime}</li>
-						</ul>
-		       		</div>
-				</div>
 		  	</article>
 	   		</c:forEach> 
-	   		<nav>
-	   			<ul class="pagination" curPage="${gridBean.page}" totalPage="${gridBean.total}">
-				</ul>
-	   		</nav>
+	   		<div class="flag-vertical-line"></div>
+	   		<div>
+	   			<span class="getmore">点击加载更多牛皮~</span>
+	   		</div>
 		</main>
 		<aside class="col-md-4 column">
 			<jsp:include page="../includes/right1.jsp"></jsp:include>
 		</aside>
 	</div>
 </div>
-
+<div class="row clearfix" >
+		<div class="col-md-12 column">
+			<div class="footer">&copy;你吹牛 2017 皖ICP备15005894号-2</div>
+		</div>
+	</div>
 </body>
 
 </html>
