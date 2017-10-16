@@ -151,7 +151,9 @@ $(function(){
 			  dataType: 'json',
 			  success: function(result) {
 				  artArray = createArticleDom(result);
-				  $(".flag:last").after(artArray)
+				  $(".flag:last").after(artArray);
+				  artNum = $(".flag").length;
+				  $(".flag-vertical-line").css("height",artNum*141);
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
 				  console.info(XMLHttpRequest.status);
@@ -175,9 +177,10 @@ function createArticleDom(result){
 			+"\"><img alt=\""+result.rows[con].title+"\" title=\""+result.rows[con].author+"}\" src=\"<%=basePath%>images/picture/nichuiniustyle.png\""
 			+" class=\"flag-pic\";></a></div><div class=\"flag-4\"><a target=\"_blank\" class=\"flag-a-txt clearfix\" href=\""
 			+result.rows[con].url+"\">"+result.rows[con].title+"</a><div class=\"flag-data\"><span class=\"flag-span\">100阅读&nbsp;⋅</span><span class=\"flag-span\">1评论&nbsp;⋅</span><span class=\"flag-span\">"
-			+result.rows[con].agree+"点赞</span></div></div></div></article>";
+			+result.rows[con].agreetime+"点赞</span></div></div></div></article>";
 		artArray.push(cont);
 	}
+	
 	return artArray;
 	
 }
