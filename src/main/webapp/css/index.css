@@ -270,3 +270,8 @@ a:hover,a:focus{
 	text-align:center;
 	color:#fff;
 }
+
+.edit{
+	width:300px;
+	height:300px;
+}
