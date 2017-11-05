@@ -1,23 +1,4 @@
 /**
- * 
- */
-var editArticle = {
-		init: function(localhost){
-			this.baseUrl = localhost;
-			this.options = {
-					test : '#test',
-				}
-				this.action = {
-					queryStoryList : editArticle.baseUrl + 'article/10',
-				}
-//			this.initialization();
-		},
-		initialization: function(){
-			var _this = this;
-			
-		},
-};
-/**
  * 页面加载后监听各种事件
  * ajax请求参数如何设置，返回结果如何读取
  */
@@ -25,19 +6,24 @@ $(function(){
 	$('#summernote').summernote();
 	  
 	$(".uploadImages").click(function(){
-		var formData = new FormData($( "#uploadImages" )[0]); 
+		var formData = new FormData($("#uploadImages")[0]); 
 		console.log(formData);
 		$.ajax({
 		  type: 'POST',
 		  url: 'uploadFile',
 		  data: formData,
-		  dateType:'JSON',
 		  async: false,  
           cache: false,  
           contentType: false,  
           processData: false,
+          dataType:'json',
 		  success: function(result){
-			  console.info("upload success"+result);
+			  console.info("upload success");
+			  $("#imageName").val(result.picName);
+			  
+			  let baseurl =  $("#imagePath")[0].src;
+			  let url = baseurl+'images/upload/'+result.picName;
+			  $("#imagePath").attr('src',url);
 		  },
 		  error: function(XMLHttpRequest, textStatus, errorThrown) {
 			  console.info(XMLHttpRequest.status);
