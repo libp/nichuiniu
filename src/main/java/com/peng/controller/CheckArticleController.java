@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -153,9 +154,10 @@ public class CheckArticleController {
 		int update = articleService.updateArticltStauts2(map);
 		 
 		if(update>0){
-			String rs = "{\'result\':\'success\'}";
+			Map<String, String> map2 = new HashMap<String, String>();
+			map2.put("result","success");
 			logger.info("article has change isuse to 2(not suitable) article id is "+id);
-			return com.alibaba.fastjson.JSONArray.toJSONString(rs);
+			return com.alibaba.fastjson.JSONArray.toJSONString(map2);
 		}else{
 			return null;
 		}
@@ -165,23 +167,21 @@ public class CheckArticleController {
 	/**
 	 * 编辑文章
 	 * @param request
-	 * @param articleId
+	 * @param num
 	 * @return
 	 */
-	@RequestMapping("/editStory")
+	@RequestMapping("/editArticle/{num}")
 	@ResponseBody
-	public String editStory(HttpServletRequest request,
-			@RequestParam(value = "articleId",required = true) String articleId
+	public ModelAndView editArticle(HttpServletRequest request,
+			@PathVariable(value = "num") String num
 			){
-		int id = Integer.parseInt(articleId);
+		ModelAndView view = new ModelAndView("editArticle");
+		int id = Integer.parseInt(num);
 		Article article = articleService.selectByPrimaryKey(id);
-		Map<String, String> map = new HashMap<String,String>();
-		map.put("author", article.getAuthor());
-		map.put("content", article.getContent());
-		map.put("createtime", article.getCreatetime());
-		map.put("title", article.getTitle());
+		view.addObject("article",article);
 		logger.info("edit article id is "+id);
-		return com.alibaba.fastjson.JSONArray.toJSONString(map);
+		
+		return view;
 	}
 	
 	/**
@@ -190,39 +190,42 @@ public class CheckArticleController {
 	 * @param articleId
 	 * @return
 	 */
-	@RequestMapping("/saveEdit")
+	@RequestMapping("/editArticle/saveEdit")
 	@ResponseBody
-	public String saveEidt(HttpServletRequest request,@RequestParam(value = "articleId",required = true) String articleId,
-			@RequestParam(value = "title",required = true) String title,
-			@RequestParam(value = "author",required = true) String author,@RequestParam(value = "createtime",required = true) String createtime
-			,@RequestParam(value = "content",required = true) String content
+	public String saveEidt(HttpServletRequest request,
+			@RequestParam(value = "title",required = true) String inputTitle,
+			@RequestParam(value = "author",required = true) String inputAuthor,
+			@RequestParam(value = "imageName",required = true) String imageName,
+			@RequestParam(value = "inputCreatetime",required = true) String inputCreatetime,
+			@RequestParam(value = "inputTag",required = true) String inputTag,
+			@RequestParam(value = "abstractArt",required = true) String abstractArt,
+			@RequestParam(value = "inputUrl",required = true) String inputUrl
 			){
 		Map<String, String> map = new HashMap<String, String>();
-		int id = Integer.parseInt(articleId);
-		int update = articleService.updateArticltStauts(id);
-		String webname = articleService.getWebNameById(id);
+		int update = articleService.updateArticltStauts(1111);
+		String webname = articleService.getWebNameById(211);
 		if(update>0) {
-			logger.info("article has update isuse to 1 article id is"+id);
+			logger.info("article has update isuse to 1 article id is"+1111);
 		}
 		
 		Story story = new Story();
 		String currtentTime = String.valueOf(System.currentTimeMillis());
-		story.setTitle(title);
-		story.setContent(content);
+		story.setTitle(inputTitle);
+		story.setContent(abstractArt);
 		story.setNum(currtentTime);
-		story.setAuthor(author);
+		story.setAuthor(inputAuthor);
 		//TODO  时间精细到分秒，方便排序
-		story.setCreatetime(changeTimeFormate(createtime));
+		story.setCreatetime(changeTimeFormate(inputCreatetime));
 		story.setOriginplace(webname);
 		story.setSource(0);  //0表示爬虫采集
 		story.setUrl("article/"+currtentTime);
 		int result = storyService.insertSelective(story);
 		if(result>0){
-			logger.info("article has inserto into story table ,article id is "+id);
+			logger.info("article has inserto into story table ,article id is "+111);
 			map.put("result","success");
 			return com.alibaba.fastjson.JSONArray.toJSONString(map);
 		}else{
-			logger.info("article into default ,article id is "+id);
+			logger.info("article into default ,article id is "+111);
 			return null;
 		}
 	}

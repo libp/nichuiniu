@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<form action="uploadFile" method="post"enctype="multipart/form-data">
+		<form id="uploadFile" method="post"enctype="multipart/form-data">
 		  <p> <input type="file" name = "file"/></p>        
 		  <input type="submit" value="Submit" />
 		</form>

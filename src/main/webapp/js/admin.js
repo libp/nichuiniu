@@ -145,7 +145,7 @@ $(function(){
 			  dataType: 'json',
 			  success: function(result) {
 				  $(_this).parent().parent().parent().remove();
-				  console.info("delete success");
+				  console.info("delete success"+result.result);
 			  },
 			  error: function(XMLHttpRequest, textStatus, errorThrown) {
 				  console.info(XMLHttpRequest.status);
@@ -160,6 +160,7 @@ $(function(){
 	  $(".edit").click(function(){
 		  var _this = this;
 		  var id = parseInt($(_this).attr("num"));
+		  window.location.href="editArticle";
 		  $.ajax({
 			  type: 'POST',
 			  url: 'editStory',
@@ -225,3 +226,4 @@ $(function(){
 	  
 	  
 	});
+

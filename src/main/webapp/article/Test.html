@@ -5,11 +5,13 @@
 <title>Insert title here</title>
 </head>
 <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
+<script src="http://lib.baomitu.com/require.js/2.3.5/require.js"></script>
 <body>
 
 
 
-<script>
+	<script>
 $(function(){ 
 	$("#ag").click(function(){
 		var i = $("#num").text();
@@ -17,11 +19,29 @@ $(function(){
 		console.log("this is "+i+" click")
 	})
 }); 
+
+
+
+var hostname = window.location.hostname;
+console.log(window.location.hostname);
+
+if(hostname.indexOf("172.16")){
+	console.log("172.16");
+}else{
+	console.log("not 172.16")
+}
+
+var Promise = require('promise');
+var promise = new Promise(function (resolve, reject) {
+	  get('http://www.baidu.com', function (err, res) {
+	    if (err) reject(err);
+	    else resolve(res);
+	  });
+	});
 </script>
-<p id="num">1</p>
-<button type="button"  id="ag" title="点赞">
-							xxx
-						</button>
+
+	<p id="num">1</p>
+	<button type="button" id="ag" title="点赞">xxx</button>
 </body>
 </html>
 

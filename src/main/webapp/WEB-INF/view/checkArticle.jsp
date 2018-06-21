@@ -6,21 +6,23 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
-<meta name="description" content="你吹牛、吹牛，你吹过的牛皮" />
+<meta name="description" content="你吹牛看古今牛皮，你吹牛以时间线的形式记录古往今来名人机构说过的大话吹过的牛皮" />
+<meta name="keywords" content="吹牛、你吹牛、大话、牛皮"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
 %>
 <link rel="shortcut icon" href="<%=basePath%>images/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="http://lib.baomitu.com/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
-<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://lib.baomitu.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://lib.baomitu.com/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>js/admin.js"></script>
-
 <!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+<link href="http://lib.baomitu.com/summernote/0.8.4/summernote.css" rel="stylesheet">
+<script src="http://lib.baomitu.com/summernote/0.8.4/summernote.js"></script>
 
 <script>
 	jQuery(function($) {
@@ -55,15 +57,16 @@
 						</p>
 		       		</div>
 		       		<div class="chuiniu-1-2">
-			       		<button type="button" class="btn btn-info btn-sm active agree ok" num="${items.id}">
-							<span class="glyphicon glyphicon-ok"></span>
-						</button>
-						<button type="button" class="btn btn-danger btn-sm active  delete" num="${items.id}">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-						<button type="button" class="btn btn-warning btn-sm active edit" num="${items.id}" data-toggle="modal" data-target="#modal-container-598106">
+						<div class="delete" num="${items.id}">
+							<a href="javascript:void()" class="flag-a-txt">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</div>
+						<div class="editArticle" num="${items.id}">
+							<a target="_blank" class="flag-a-txt" href="editArticle/${items.id}">
 								<span class="glyphicon glyphicon-pencil"></span>
-						</button>
+							</a>
+						</div>
 					</div>
 		       	</div>
 		       	<div class="chuiniu-2">

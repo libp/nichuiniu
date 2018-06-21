@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
-<meta name="description" content="你吹牛、吹牛，你吹过的牛皮" />
+<meta name="description" content="你吹牛看古今牛皮，你吹牛以时间线的形式记录古往今来名人机构说过的大话吹过的牛皮" />
+<meta name="keywords" content="吹牛、你吹牛、大话、牛皮"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
